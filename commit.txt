@@ -1,0 +1,8 @@
+﻿Verbose update with five-pillar QA improvements:
+- Deterministic provenance hashing
+- Literature validation harness with direction conflict checks
+- Graceful handling of missing confidence intervals (CI)
+- Dynamic ancestry-aware disclaimers and caveats
+- Semantic version bump to 3.2.0
+- Unit-test scaffolds for core analyses
+- README updated with clear project description
