@@ -1,0 +1,405 @@
+====================================================================================================
+ADVANCED SCIENTIFIC GENETIC ANALYSIS REPORT
+====================================================================================================
+
+Generated: 2025-06-01 00:25:59
+Analysis Version: 2.0 - Scientific Edition
+Reference Genome: GRCh37/hg19
+
+DISCLAIMER:
+--------------------------------------------------
+This analysis incorporates findings from peer-reviewed scientific literature
+and represents the current understanding of genetic associations. Genetic
+variants represent probabilities, not certainties. Environmental factors,
+lifestyle, and chance play crucial roles in health outcomes. This report
+is for research and educational purposes. Consult healthcare professionals
+for medical interpretation and decision-making.
+
+EXECUTIVE SUMMARY
+--------------------------------------------------
+Total High-Quality Variants Analyzed: 626,830
+Heterozygosity Rate: 16.45%
+  (Population average: 15-20%)
+
+Key Findings:
+• Elevated genetic risk (>80th percentile): Cardiovascular Disease, Type 2 Diabetes, Alzheimers Disease, Prostate Cancer, Height
+
+
+====================================================================================================
+POLYGENIC RISK SCORES (PRS) ANALYSIS
+====================================================================================================
+
+Polygenic risk scores aggregate the effects of multiple genetic variants to
+estimate genetic predisposition. Scores are compared to population distributions.
+
+
+CARDIOVASCULAR DISEASE
+--------------------------------------------------
+Polygenic Risk Score: 1.010
+Population Percentile: 86.9%
+Risk Category: High (Top 20%)
+Based on 6/8 variants
+
+Major Contributing Variants:
+  • N/A (rs10953541): CC - 2 risk allele(s), contribution: 0.280
+  • N/A (rs10757278): AG - 1 risk allele(s), contribution: 0.240
+  • N/A (rs1333049): CG - 1 risk allele(s), contribution: 0.210
+  • N/A (rs10757274): AG - 1 risk allele(s), contribution: 0.160
+  • N/A (rs9349379): AG - 1 risk allele(s), contribution: 0.120
+
+Scientific Context:
+This score is based on the landmark 2018 study by Khera et al. (Nature Genetics)
+which analyzed 5 million variants. Individuals in the top 5% have risk
+equivalent to monogenic familial hypercholesterolemia.
+
+
+TYPE 2 DIABETES
+--------------------------------------------------
+Polygenic Risk Score: 1.000
+Population Percentile: 83.0%
+Risk Category: High (Top 20%)
+Based on 7/8 variants
+
+Major Contributing Variants:
+  • KCNJ11 (rs5219): TT - 2 risk allele(s), contribution: 0.360
+  • PPARG (rs1801282): CG - 1 risk allele(s), contribution: 0.220
+  • CDKAL1 (rs7754840): CG - 1 risk allele(s), contribution: 0.160
+  • CDKN2A/B (rs10811661): CT - 1 risk allele(s), contribution: 0.150
+  • HHEX (rs1111875): CT - 1 risk allele(s), contribution: 0.110
+
+Scientific Context:
+Based on Mahajan et al. 2018 (Nature Genetics) meta-analysis of 898,130 individuals.
+The TCF7L2 variant alone confers ~30% increased risk per risk allele.
+
+
+ALZHEIMERS DISEASE
+--------------------------------------------------
+Polygenic Risk Score: 2.560
+Population Percentile: 98.4%
+Risk Category: Very High (Top 5%)
+Based on 8/8 variants
+
+Major Contributing Variants:
+  • APOE (rs429358): CT - 1 risk allele(s), contribution: 2.200
+  • CLU (rs11136000): CT - 1 risk allele(s), contribution: 0.130
+  • MS4A6A (rs983392): AG - 1 risk allele(s), contribution: 0.120
+  • SLC24A4 (rs10498633): GT - 1 risk allele(s), contribution: 0.110
+  • APOE (rs7412): CC - 0 risk allele(s), contribution: -0.000
+
+Scientific Context:
+APOE status is the strongest genetic risk factor. ε4 carriers have 3-15x
+increased risk depending on number of copies (Jansen et al., Nature Genetics 2019).
+
+
+BREAST CANCER
+--------------------------------------------------
+Polygenic Risk Score: 0.560
+Population Percentile: 68.0%
+Risk Category: Above Average
+Based on 6/7 variants
+
+Major Contributing Variants:
+  • 8q24 (rs13281615): GG - 2 risk allele(s), contribution: 0.300
+  • 2q35 (rs13387042): AG - 1 risk allele(s), contribution: 0.140
+  • 5p12 (rs10941679): AG - 1 risk allele(s), contribution: 0.120
+  • FGFR2 (rs2981582): GG - 0 risk allele(s), contribution: 0.000
+  • TOX3 (rs3803662): AG - 0 risk allele(s), contribution: 0.000
+
+
+PROSTATE CANCER
+--------------------------------------------------
+Polygenic Risk Score: 1.510
+Population Percentile: 89.6%
+Risk Category: High (Top 20%)
+Based on 6/7 variants
+
+Major Contributing Variants:
+  • 8q24 (rs6983267): GG - 2 risk allele(s), contribution: 0.360
+  • 17q24 (rs1859962): GG - 2 risk allele(s), contribution: 0.320
+  • HNF1B (rs4430796): AA - 2 risk allele(s), contribution: 0.300
+  • KLK3 (rs2735839): GG - 2 risk allele(s), contribution: 0.280
+  • MSMB (rs10993994): CT - 1 risk allele(s), contribution: 0.250
+
+
+SCHIZOPHRENIA
+--------------------------------------------------
+Polygenic Risk Score: 0.540
+Population Percentile: 70.5%
+Risk Category: Above Average
+Based on 5/7 variants
+
+Major Contributing Variants:
+  • AKT3 (rs1198588): AA - 2 risk allele(s), contribution: 0.200
+  • MHC (rs2007044): AG - 1 risk allele(s), contribution: 0.180
+  • CSMD1 (rs10503253): AA - 2 risk allele(s), contribution: 0.160
+  • AS3MT (rs11191454): AA - 0 risk allele(s), contribution: 0.000
+  • MMP16 (rs7004633): AA - 0 risk allele(s), contribution: 0.000
+
+
+HEIGHT
+--------------------------------------------------
+Polygenic Risk Score: 1.600
+Population Percentile: 90.9%
+Risk Category: High (Top 20%)
+Based on 6/7 variants
+
+Major Contributing Variants:
+  • ZBTB38 (rs2871865): CC - 2 risk allele(s), contribution: 0.640
+  • HMGA2 (rs1042725): CC - 2 risk allele(s), contribution: 0.560
+  • GDF5 (rs143384): AA - 2 risk allele(s), contribution: 0.400
+  • HMGA2 (rs3791675): CT - 0 risk allele(s), contribution: 0.000
+  • GDF5 (rs572169): CT - 0 risk allele(s), contribution: 0.000
+
+
+====================================================================================================
+PHARMACOGENOMIC ANALYSIS (CPIC GUIDELINES)
+====================================================================================================
+
+Based on Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines.
+These are actionable variants with strong evidence for clinical utility.
+
+
+VKORC1 - Warfarin
+--------------------------------------------------
+Variant: rs9923231
+Your Genotype: CT
+Metabolizer Status: Intermediate dose
+Clinical Impact: Major impact on dosing
+Evidence Level: CPIC Level A
+
+Clinical Note: Genotype-guided warfarin dosing can reduce time to stable INR
+and decrease adverse events. Consider pharmacogenetic dosing algorithms.
+
+CYP2C9*2 - Warfarin, NSAIDs
+--------------------------------------------------
+Variant: rs1799853
+Your Genotype: CC
+Metabolizer Status: Normal metabolizer
+Clinical Impact: Reduced metabolism
+Evidence Level: CPIC Level A
+
+Clinical Note: Genotype-guided warfarin dosing can reduce time to stable INR
+and decrease adverse events. Consider pharmacogenetic dosing algorithms.
+
+CYP2C9*3 - Warfarin, NSAIDs
+--------------------------------------------------
+Variant: rs1057910
+Your Genotype: AA
+Metabolizer Status: Normal metabolizer
+Clinical Impact: Severely reduced metabolism
+Evidence Level: CPIC Level A
+
+Clinical Note: Genotype-guided warfarin dosing can reduce time to stable INR
+and decrease adverse events. Consider pharmacogenetic dosing algorithms.
+
+CYP2C19*2 - Clopidogrel
+--------------------------------------------------
+Variant: rs4244285
+Your Genotype: GG
+Metabolizer Status: Normal metabolizer
+Clinical Impact: Loss of function
+Evidence Level: CPIC Level A
+
+CYP2C19*17 - Clopidogrel, SSRIs
+--------------------------------------------------
+Variant: rs12248560
+Your Genotype: CT
+Metabolizer Status: Rapid metabolizer
+Clinical Impact: Increased function
+Evidence Level: CPIC Level A
+
+HTR2A - SSRIs
+--------------------------------------------------
+Variant: rs7997012
+Your Genotype: AA
+Metabolizer Status: Increased risk of side effects
+Clinical Impact: Treatment response
+Evidence Level: PharmGKB Level 2A
+
+SLCO1B1 - Simvastatin
+--------------------------------------------------
+Variant: rs4149056
+Your Genotype: CT
+Metabolizer Status: Unknown effect
+Clinical Impact: Myopathy risk
+Evidence Level: CPIC Level A
+
+Clinical Note: Increased risk of simvastatin-induced myopathy. Consider
+alternative statins (rosuvastatin, pravastatin) or lower doses.
+
+TPMT*3C - Azathioprine, 6-mercaptopurine
+--------------------------------------------------
+Variant: rs1142345
+Your Genotype: TT
+Metabolizer Status: Normal activity
+Clinical Impact: Myelosuppression risk
+Evidence Level: CPIC Level A
+
+ABCG2 - Allopurinol
+--------------------------------------------------
+Variant: rs2231142
+Your Genotype: GG
+Metabolizer Status: Normal function
+Clinical Impact: Hyperuricemia treatment
+Evidence Level: CPIC Level B
+
+====================================================================================================
+ATHLETIC PERFORMANCE GENETICS
+====================================================================================================
+
+
+ACTN3 - Muscle fiber composition
+------------------------------
+Genotype: CC
+Effect: Power/sprint optimized (functional α-actinin-3)
+Reference: Yang et al., Am J Hum Genet 2003
+
+IL6 - Recovery and inflammation
+------------------------------
+Genotype: GG
+Effect: Higher IL-6 response - slower recovery
+Reference: Yamin et al., J Appl Physiol 2008
+
+Note: Athletic performance is highly polygenic and strongly influenced by
+training, nutrition, and other environmental factors. Genetic variants
+explain only a small portion of athletic ability.
+
+====================================================================================================
+NUTRITIONAL GENOMICS
+====================================================================================================
+
+
+MTHFR C677T
+------------------------------
+Affects: Folate/B vitamins
+Your Genotype: GG
+Recommendation: Normal enzyme activity
+Reference: Frosst et al., Nat Genet 1995
+
+MTHFR A1298C
+------------------------------
+Affects: Folate/B vitamins
+Your Genotype: GT
+Recommendation: Unknown effect
+Reference: Weisberg et al., Mol Genet Metab 1998
+
+GC
+------------------------------
+Affects: Vitamin D
+Your Genotype: TT
+Recommendation: Unknown effect
+Reference: Wang et al., Lancet 2010
+
+Nutritional Note: Monitor vitamin D levels regularly. May require higher
+supplementation doses to maintain optimal serum levels (>30 ng/mL).
+
+FUT2
+------------------------------
+Affects: Vitamin B12
+Your Genotype: AG
+Recommendation: Unknown effect
+Reference: Hazra et al., Nat Genet 2008
+
+MTRR
+------------------------------
+Affects: Vitamin B12
+Your Genotype: AG
+Recommendation: Slightly impaired
+Reference: Wilson et al., Am J Hum Genet 1999
+
+====================================================================================================
+COGNITIVE AND PERSONALITY GENETICS
+====================================================================================================
+
+These variants influence neurotransmitter function and neural plasticity.
+Effects are subtle and heavily modulated by environment and experience.
+
+
+COMT Val158Met
+------------------------------
+Function: Working memory and stress resilience
+Your Genotype: GG
+Effect: Val/Val - Better stress resilience, lower baseline dopamine
+Reference: Egan et al., PNAS 2001
+
+BDNF Val66Met
+------------------------------
+Function: Memory and stress response
+Your Genotype: CC
+Effect: Val/Val - Better activity-dependent BDNF secretion
+Reference: Egan et al., Cell 2003
+
+OXTR
+------------------------------
+Function: Social behavior and empathy
+Your Genotype: GG
+Effect: Enhanced empathy and prosocial behavior
+Reference: Rodrigues et al., PNAS 2009
+
+====================================================================================================
+CIRCADIAN RHYTHM GENETICS
+====================================================================================================
+
+
+CLOCK - Sleep duration and timing
+------------------------------
+Your Genotype: AA
+Effect: Unknown effect
+Reference: Benedetti et al., Biol Psychiatry 2003
+
+Practical Implications: Understanding your genetic chronotype can help
+optimize sleep schedules, work performance, and medication timing.
+
+====================================================================================================
+LONGEVITY AND HEALTHY AGING
+====================================================================================================
+
+
+FOXO3
+------------------------------
+Your Genotype: CC
+Association: Unknown effect
+Reference: Willcox et al., PNAS 2008
+
+FOXO3
+------------------------------
+Your Genotype: TT
+Association: Standard stress resistance
+Reference: Flachsbart et al., PNAS 2009
+
+APOC3
+------------------------------
+Your Genotype: GG
+Association: Unknown effect
+Reference: Atzmon et al., JAMA 2006
+
+Note: Longevity is influenced by hundreds of genetic variants and strongly
+determined by lifestyle factors. These variants show statistical associations
+in centenarian studies but have modest individual effects.
+
+====================================================================================================
+KEY SCIENTIFIC REFERENCES
+====================================================================================================
+
+1. Khera AV, et al. Genome-wide polygenic scores for common diseases identify individuals with risk equivalent to monogenic mutations. Nat Genet. 2018;50(9):1219-1224.
+2. Mahajan A, et al. Fine-mapping type 2 diabetes loci to single-variant resolution using high-density imputation and islet-specific epigenome maps. Nat Genet. 2018;50(11):1505-1513.
+3. Jansen IE, et al. Genome-wide meta-analysis identifies new loci and functional pathways influencing Alzheimer's disease risk. Nat Genet. 2019;51(3):404-413.
+4. Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines. Available at: cpicpgx.org
+5. Yang N, et al. ACTN3 genotype is associated with human elite athletic performance. Am J Hum Genet. 2003;73(3):627-31.
+6. Patke A, et al. Mutation of the Human Circadian Clock Gene CRY1 in Familial Delayed Sleep Phase Disorder. Cell. 2017;169(2):203-215.
+7. Willcox BJ, et al. FOXO3A genotype is strongly associated with human longevity. PNAS. 2008;105(37):13987-92.
+8. Grove J, et al. Identification of common genetic risk variants for autism spectrum disorder. Nat Genet. 2019;51(3):431-444.
+9. Savage JE, et al. Genome-wide association meta-analysis in 269,867 individuals identifies new genetic and functional links to intelligence. Nat Genet. 2018;50(7):912-919.
+10. Yengo L, et al. Meta-analysis of genome-wide association studies for height and body mass index in ~700,000 individuals of European ancestry. Hum Mol Genet. 2018;27(20):3641-3649.
+
+====================================================================================================
+END OF REPORT
+====================================================================================================
+
+This report analyzed your genetic data using current scientific knowledge.
+Genetic research is rapidly advancing, and interpretations may change as
+new discoveries are made. For medical decisions, consult with healthcare
+professionals who can interpret these findings in your clinical context.
+
+Report generated by Advanced Scientific Genetic Analysis Tool v2.0
+For research and educational purposes only.

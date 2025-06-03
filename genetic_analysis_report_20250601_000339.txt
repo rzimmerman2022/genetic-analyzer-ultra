@@ -1,0 +1,107 @@
+================================================================================
+23andMe Genetic Data Analysis Report
+================================================================================
+
+IMPORTANT DISCLAIMER:
+----------------------------------------
+This report is for educational and informational purposes only.
+It does not constitute medical advice, diagnosis, or treatment.
+Please consult healthcare professionals for medical guidance.
+
+Report Generated: 2025-06-01 00:03:39
+Data Source: 23andMe
+Reference Build: GRCh37/hg19
+
+BASIC STATISTICS
+----------------------------------------
+Total Variants Analyzed: 631,702
+Homozygous Variants: 509,532
+Heterozygous Variants: 99,456
+Heterozygosity Rate: 16.33%
+
+ANALYSIS OF WELL-STUDIED GENETIC VARIANTS
+----------------------------------------
+The following variants have been extensively studied in scientific literature:
+
+Gene: APOE
+Variant ID: rs429358
+Your Genotype: CT
+Associated Trait: Alzheimer's disease risk
+Interpretation: One risk allele present (heterozygous)
+
+Gene: APOE
+Variant ID: rs7412
+Your Genotype: CC
+Associated Trait: Alzheimer's disease risk
+Interpretation: No risk alleles present
+
+Gene: MTHFR
+Variant ID: rs1801133
+Your Genotype: GG
+Associated Trait: Folate metabolism
+Interpretation: No risk alleles present
+
+Gene: MTHFR
+Variant ID: rs1801131
+Your Genotype: GT
+Associated Trait: Folate metabolism
+Interpretation: No risk alleles present
+
+Gene: MCM6
+Variant ID: rs4988235
+Your Genotype: AG
+Associated Trait: Lactose tolerance
+Interpretation: Standard genotype
+
+Gene: CYP1A2
+Variant ID: rs762551
+Your Genotype: AA
+Associated Trait: Caffeine metabolism
+Interpretation: Fast metabolizer genotype
+
+Gene: ALDH2
+Variant ID: rs671
+Your Genotype: GG
+Associated Trait: Alcohol metabolism
+Interpretation: Standard genotype
+
+Gene: ACTN3
+Variant ID: rs1815739
+Your Genotype: CC
+Associated Trait: Muscle composition
+Interpretation: Power/sprint athlete genotype
+
+Gene: TAS2R38
+Variant ID: rs713598
+Your Genotype: CG
+Associated Trait: Bitter taste perception
+Interpretation: Standard genotype
+
+ANCESTRY-INFORMATIVE MARKERS
+----------------------------------------
+These markers can provide hints about ancestral origins:
+
+Marker: rs1426654 - SLC24A5 - skin pigmentation
+Your Genotype: AA
+Ancestral alleles: 0, Derived alleles: 2
+
+Marker: rs16891982 - SLC45A2 - skin pigmentation
+Your Genotype: GG
+Ancestral alleles: 0, Derived alleles: 2
+
+Marker: rs1042602 - TYR - eye color
+Your Genotype: AC
+Ancestral alleles: 1, Derived alleles: 1
+
+
+EDUCATIONAL NOTES
+----------------------------------------
+1. Genetic variants are just one factor in health and traits.
+2. Environmental factors often play a larger role than genetics.
+3. Most traits are polygenic (influenced by many genes).
+4. Scientific understanding of genetics continues to evolve.
+5. Consider genetic counseling for health-related questions.
+
+================================================================================
+End of Report
+================================================================================

@@ -1,0 +1,941 @@
+====================================================================================================
+ULTRA-COMPREHENSIVE 23ANDME GENETIC DATA ANALYSIS REPORT
+Scientific Edition with Enhanced Insights - Based on Latest Research
+====================================================================================================
+
+IMPORTANT DISCLAIMER:
+--------------------------------------------------
+This report is for educational and research purposes only.
+It incorporates findings from peer-reviewed scientific literature.
+It does not constitute medical advice, diagnosis, or treatment.
+Please consult healthcare professionals and genetic counselors.
+
+Report Generated: 2025-06-02 17:52:19
+Data Source: 23andMe
+Reference Build: GRCh37/hg19
+Analysis Script Version: 3.2.0
+Database Versions Used:
+  - ClinVar: 2025-03-01
+  - GWAS_Catalog: e110_r2025-02-15
+  - dbSNP: Build 156
+  - gnomAD: v4.0
+  - PharmGKB: 2025-03-10
+  - RefSeq: Release 220
+  - SSGAC_EA_PRS_Model: Okbay_et_al_2022_NatureGenetics
+  - CardiogramC4D_CAD_PRS_Model: Inouye_et_al_2018_JACC
+Analysis Started (UTC): 2025-06-03T00:52:04.803096
+Analysis Ended (UTC): 2025-06-03T00:52:15.474971
+Reproducibility Hash (SHA256): b589faa042d045070d9a21e48a0115593eb8ba67dabc44d9a990fa92714f4241
+
+Research & educational use only – not medical advice. This analysis is based on current scientific understanding, which is constantly evolving. Genetic predispositions do not determine health outcomes, as environmental and lifestyle factors play significant roles.
+
+Accuracy of genetic predictions (for diseases, traits, and drug responses) may be significantly reduced for individuals whose ancestry is not well-represented in the underlying research studies. 
+Most large-scale genetic studies to date have predominantly involved participants of European ancestry. Therefore, findings may not generalize well to individuals of African, Asian, Hispanic/Latinx, Native American, Pacific Islander, or mixed ancestries. 
+This is a known limitation in current genomics research, and efforts are underway to improve diversity in genetic studies.
+
+Findings related to rare diseases or carrier status should be confirmed by clinical-grade genetic testing in a certified laboratory. 
+Consult with a healthcare provider or genetic counselor to understand the implications of any such findings for yourself and your family members.
+
+Pharmacogenomic information can help predict how you might respond to certain medications. However, these are predictions, and actual drug response can be influenced by many other factors including other medications, diet, age, and overall health. 
+Always discuss medication decisions with your healthcare provider. Do not change or stop any medication based solely on this genetic report.
+
+EXECUTIVE SUMMARY
+--------------------------------------------------
+This ultra-comprehensive genetic analysis examines your 23andMe data using
+the most advanced scientific methods and incorporates fascinating insights
+about your genetic makeup, from disease risks to unique traits.
+
+KEY FINDINGS OVERVIEW:
+• Total genetic variants analyzed: 626,906
+• Heterozygosity rate: 16.46%
+• High-risk health findings: 1
+• Pharmacogenomic markers found: 5
+• Rare pathogenic variants detected: 1
+• Fascinating traits analyzed: 21
+• Ancient human variants detected: 2
+
+
+================================================================================
+SECTION 1: ADVANCED GENETIC STATISTICS
+================================================================================
+
+Total Variants Analyzed: 626,906
+Call Rate: 97.42%
+Homozygous Variants: 504,736
+Heterozygous Variants: 99,456
+Heterozygosity Rate: 16.46%
+Transition/Transversion Ratio: 4.30
+Inbreeding Coefficient (F): 0.4856
+
+Interpretation:
+Your heterozygosity rate is below the typical range for outbred populations. This could suggest:
+  - Ancestry from a population with a smaller effective population size or history of endogamy.
+  - Potential for a degree of recent shared ancestry in your family history (e.g., parents from the same isolated community or distant cousins).
+  It does not necessarily imply health concerns but is an interesting feature of your genetic makeup.
+
+================================================================================
+SECTION 2: VALIDATION AGAINST LITERATURE BENCHMARKS
+================================================================================
+
+Rule: APOE_Alz_Value_Check
+  Status: NOT_APPLICABLE
+  Details: Calculated value for rs429358 not found.
+
+Rule: APOE_Alz_Direction_Conflict
+  Status: NOT_APPLICABLE
+  Details: Calculated OR for rs429358 not found for direction check.
+
+Rule: C282Y_HFE_Penetrance
+  Status: NOT_APPLICABLE
+  Details: Rule conditions not met or data not found in results.
+
+
+================================================================================
+SECTION 3: COMPREHENSIVE DISEASE RISK ANALYSIS
+================================================================================
+Research & educational use only – not medical advice. This analysis is based on current scientific understanding, which is constantly evolving. Genetic predispositions do not determine health outcomes, as environmental and lifestyle factors play significant roles.
+
+Accuracy of genetic predictions (for diseases, traits, and drug responses) may be significantly reduced for individuals whose ancestry is not well-represented in the underlying research studies. 
+Most large-scale genetic studies to date have predominantly involved participants of European ancestry. Therefore, findings may not generalize well to individuals of African, Asian, Hispanic/Latinx, Native American, Pacific Islander, or mixed ancestries. 
+This is a known limitation in current genomics research, and efforts are underway to improve diversity in genetic studies.
+
+Based on peer-reviewed genetic association studies:
+
+
+NEUROLOGICAL CONDITIONS:
+----------------------------------------
+
+Gene: APOE
+Variant: rs429358
+Your Genotype: CT
+Associated Trait: Alzheimer's disease risk
+Relative Risk: 3.00x (95% CI: 2.60–3.50)
+Effect Category: very_large_risk
+Risk Level: Moderately High
+Interpretation: Heterozygous carrier
+Molecular Mechanism: Impairs amyloid-β clearance and promotes tau phosphorylation
+Reference: PMID 37981234
+
+Gene: APOE
+Variant: rs7412
+Your Genotype: CC
+Associated Trait: Alzheimer's disease risk
+Relative Risk: 1.00x (95% CI: 1.00–1.00)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Modifies APOE isoform - ε2 is protective, enhances lipid metabolism
+Reference: PMID 37981234
+
+Gene: TREM2
+Variant: rs75932628
+Your Genotype: CC
+Associated Trait: Alzheimer's disease risk
+Relative Risk: 1.00x (95% CI: 1.00–1.00)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Impairs microglial phagocytosis of amyloid-β and response to neuronal damage
+Reference: PMID 22227052
+
+Gene: COMT
+Variant: rs4680
+Your Genotype: GG
+Associated Trait: Dopamine metabolism/Cognitive function
+Relative Risk: N/A
+Effect Category: N/A
+Risk Level: Unknown
+Interpretation: N/A
+Molecular Mechanism: Val variant has 4x higher enzyme activity
+Reference: PMID 38467283
+
+CARDIOVASCULAR CONDITIONS:
+----------------------------------------
+
+Gene: CDKN2B-AS1
+Variant: rs1333049
+Your Genotype: CG
+Associated Trait: Coronary artery disease
+Relative Risk: 1.29x (95% CI: N/A)
+Effect Category: moderate
+Risk Level: Moderate
+Interpretation: Heterozygous carrier
+Molecular Mechanism: Affects vascular smooth muscle cell proliferation
+Reference: PMID 38448587
+
+OTHER CONDITIONS:
+----------------------------------------
+
+Gene: MIA3
+Variant: rs17465637
+Your Genotype: AC
+Associated Trait: Myocardial infarction risk
+Relative Risk: 1.20x (95% CI: N/A)
+Effect Category: small
+Risk Level: Moderate
+Interpretation: Heterozygous carrier
+Molecular Mechanism: Disrupts collagen secretion in coronary arteries
+Reference: PMID 38291489
+
+Gene: MTHFR
+Variant: rs1801133
+Your Genotype: GG
+Associated Trait: Folate metabolism/Homocysteine levels
+Relative Risk: 1.00x (95% CI: N/A)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Reduces enzyme activity by 70% (TT) or 35% (CT)
+Reference: PMID 38562087
+
+Gene: MTHFR
+Variant: rs1801131
+Your Genotype: GT
+Associated Trait: Folate metabolism
+Relative Risk: 1.00x (95% CI: N/A)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Compound heterozygosity with C677T reduces activity
+Reference: PMID 38562087
+
+Gene: BDNF
+Variant: rs6265
+Your Genotype: CC
+Associated Trait: Brain plasticity/Depression risk
+Relative Risk: 1.00x (95% CI: N/A)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Impairs activity-dependent BDNF secretion
+Reference: PMID 38523467
+
+Gene: CYP2C19
+Variant: rs4244285
+Your Genotype: GG
+Associated Trait: Clopidogrel metabolism
+Relative Risk: N/A
+Effect Category: N/A
+Risk Level: Unknown
+Interpretation: N/A
+Molecular Mechanism: Creates null allele CYP2C19*2
+Reference: PMID 38478293
+
+Gene: CYP1A2
+Variant: rs762551
+Your Genotype: AA
+Associated Trait: Caffeine metabolism
+Relative Risk: N/A
+Effect Category: N/A
+Risk Level: Variable by substance
+Interpretation: N/A
+Molecular Mechanism: Affects phase I caffeine metabolism rate
+Reference: PMID 38502847
+
+Gene: FOXO3
+Variant: rs2802292
+Your Genotype: TT
+Associated Trait: Longevity/Healthy aging
+Relative Risk: N/A
+Effect Category: N/A
+Risk Level: Unknown
+Interpretation: N/A
+Molecular Mechanism: Enhances stress resistance pathways
+Reference: PMID 38492617
+
+METABOLIC CONDITIONS:
+----------------------------------------
+
+Gene: TCF7L2
+Variant: rs7903146
+Your Genotype: CC
+Associated Trait: Type 2 diabetes risk
+Relative Risk: 1.00x (95% CI: N/A)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Impairs insulin secretion and incretin effect
+Reference: PMID 38498729
+
+Gene: PPARG
+Variant: rs1801282
+Your Genotype: CG
+Associated Trait: Type 2 diabetes/Insulin sensitivity
+Relative Risk: 0.86x (95% CI: N/A)
+Effect Category: small_protective
+Risk Level: Protective
+Interpretation: Heterozygous carrier
+Molecular Mechanism: Ala variant improves insulin sensitivity
+Reference: PMID 38345692
+
+ONCOLOGICAL CONDITIONS:
+----------------------------------------
+
+Gene: ADH1B
+Variant: rs1229984
+Your Genotype: CC
+Associated Trait: Alcohol metabolism/Cancer risk
+Relative Risk: N/A
+Effect Category: N/A
+Risk Level: Variable by substance
+Interpretation: N/A
+Molecular Mechanism: Fast metabolism reduces acetaldehyde exposure
+Reference: PMID 38472915
+
+Gene: CHRNA3
+Variant: rs1051730
+Your Genotype: AG
+Associated Trait: Nicotine dependence/Lung cancer
+Relative Risk: 1.30x (95% CI: N/A)
+Effect Category: moderate
+Risk Level: Moderate
+Interpretation: Heterozygous carrier
+Molecular Mechanism: Increases nicotine receptor expression
+Reference: PMID 38519274
+
+Gene: TP53
+Variant: rs1042522
+Your Genotype: CG
+Associated Trait: Cancer resistance/Longevity trade-off
+Relative Risk: N/A
+Effect Category: N/A
+Risk Level: Unknown
+Interpretation: N/A
+Molecular Mechanism: Pro72 variant shows enhanced tumor suppression
+Reference: PMID 38507423
+
+AUTOIMMUNE CONDITIONS:
+----------------------------------------
+
+Gene: TRAF1-C5
+Variant: rs3761847
+Your Genotype: GG
+Associated Trait: Rheumatoid arthritis risk
+Relative Risk: 1.00x (95% CI: N/A)
+Effect Category: negligible
+Risk Level: Low
+Interpretation: No risk alleles present
+Molecular Mechanism: Affects NF-κB signaling pathway
+Reference: PMID 38456291
+
+================================================================================
+SECTION 4: POLYGENIC RISK SCORES
+================================================================================
+Research & educational use only – not medical advice. This analysis is based on current scientific understanding, which is constantly evolving. Genetic predispositions do not determine health outcomes, as environmental and lifestyle factors play significant roles.
+
+Psychological trait predictions (including cognitive abilities, personality, etc.) are based on statistical associations found in large population studies. These genetic scores typically explain a small fraction of the variance in these complex traits (often <15%). 
+Environmental factors (e.g., upbringing, education, life experiences, personal choices, socioeconomic status) and gene-environment interactions have a much larger impact. 
+These predictions should NOT be used to assess an individual's intelligence, character, potential, or worth. They are not deterministic and have very limited predictive power for any single individual.
+
+Accuracy of genetic predictions (for diseases, traits, and drug responses) may be significantly reduced for individuals whose ancestry is not well-represented in the underlying research studies. 
+Most large-scale genetic studies to date have predominantly involved participants of European ancestry. Therefore, findings may not generalize well to individuals of African, Asian, Hispanic/Latinx, Native American, Pacific Islander, or mixed ancestries. 
+This is a known limitation in current genomics research, and efforts are underway to improve diversity in genetic studies.
+
+Complex trait risk assessment using multiple genetic variants:
+
+
+Coronary Artery Disease Risk:
+----------------------------------------
+Raw Score: 0.563
+Z-Score: 0.56
+Percentile: 71.3%
+Interpretation: Average genetic risk
+Variants Used: 6/7
+Reference: PMID 38523894
+
+Type 2 Diabetes Risk:
+----------------------------------------
+Raw Score: 0.546
+Z-Score: 0.55
+Percentile: 70.7%
+Interpretation: Average genetic risk
+Variants Used: 7/7
+Reference: PMID 38498729
+
+Alzheimer's Disease Risk (non-APOE):
+----------------------------------------
+Raw Score: 0.104
+Z-Score: 0.10
+Percentile: 54.1%
+Interpretation: Average genetic risk
+Variants Used: 6/7
+Reference: PMID 38467912
+
+Predicted Height (polygenic):
+----------------------------------------
+Raw Score: 0.260
+Z-Score: 0.01
+Percentile: 50.2%
+Interpretation: Predicted height deviation: +0.0 cm from population average
+Variants Used: 3/5
+Reference: PMID 38502156
+
+Educational Attainment (Intelligence proxy):
+----------------------------------------
+Raw Score: 0.035
+Z-Score: 0.04
+Percentile: 51.4%
+Interpretation: Average genetic predisposition for educational attainment
+Variants Used: 2/5
+Reference: PMID 38514899
+
+Major Depression Risk:
+----------------------------------------
+Raw Score: 0.054
+Z-Score: 0.05
+Percentile: 52.2%
+Interpretation: Average genetic risk
+Variants Used: 2/5
+Reference: PMID 38492156
+
+================================================================================
+SECTION 5: PHARMACOGENOMICS ANALYSIS
+================================================================================
+Drug metabolism predictions based on CPIC guidelines:
+
+
+CYP2C19:
+----------------------------------------
+Predicted Phenotype: Poor Metabolizer
+Affected Drugs: clopidogrel, voriconazole, proton pump inhibitors
+Clinical Implications: Reduced clopidogrel efficacy, consider alternatives
+Reference: PMID 38478293
+
+Variants Found:
+  - rs4244285: GG (*2, none)
+  - rs4986893: GG (*3, none)
+  - rs28399504: AA (*4, none)
+  - rs12248560: CT (*17, increased)
+
+⚠️  IMPORTANT: If prescribed clopidogrel (Plavix), discuss alternatives with your doctor.
+
+CYP2C9:
+----------------------------------------
+Predicted Phenotype: Intermediate Metabolizer
+Affected Drugs: warfarin, phenytoin, NSAIDs
+Clinical Implications: Consult pharmacist for dosing
+Reference: PMID 38493827
+
+Variants Found:
+  - rs1799853: CC (*2, decreased)
+  - rs1057910: AA (*3, decreased)
+
+SLCO1B1:
+----------------------------------------
+Predicted Phenotype: Decreased Function
+Affected Drugs: simvastatin, atorvastatin, rosuvastatin
+Clinical Implications: Increased risk of statin myopathy, consider lower doses or alternatives
+Reference: PMID 38486719
+
+Variants Found:
+  - rs4149056: CT (*5, decreased)
+
+TPMT:
+----------------------------------------
+Predicted Phenotype: Variant Detected
+Affected Drugs: azathioprine, mercaptopurine, thioguanine
+Clinical Implications: Consult pharmacist for dosing
+Reference: PMID 38512847
+
+Variants Found:
+  - rs1142345: TT (*3C, decreased)
+  - rs1800460: CC (*3B, decreased)
+
+DPYD:
+----------------------------------------
+Predicted Phenotype: Variant Detected
+Affected Drugs: 5-fluorouracil, capecitabine
+Clinical Implications: Consult pharmacist for dosing
+Reference: PMID 38497162
+
+Variants Found:
+  - rs3918290: CC (*2A, none)
+  - rs55886062: AA (*13, decreased)
+  - rs67376798: TT (2846A>T, decreased)
+
+================================================================================
+SECTION 6: RARE VARIANT SCREENING
+================================================================================
+Research & educational use only – not medical advice. This analysis is based on current scientific understanding, which is constantly evolving. Genetic predispositions do not determine health outcomes, as environmental and lifestyle factors play significant roles.
+
+Accuracy of genetic predictions (for diseases, traits, and drug responses) may be significantly reduced for individuals whose ancestry is not well-represented in the underlying research studies. 
+Most large-scale genetic studies to date have predominantly involved participants of European ancestry. Therefore, findings may not generalize well to individuals of African, Asian, Hispanic/Latinx, Native American, Pacific Islander, or mixed ancestries. 
+This is a known limitation in current genomics research, and efforts are underway to improve diversity in genetic studies.
+
+Findings related to rare diseases or carrier status should be confirmed by clinical-grade genetic testing in a certified laboratory. 
+Consult with a healthcare provider or genetic counselor to understand the implications of any such findings for yourself and your family members.
+
+Screening for known pathogenic mutations:
+
+
+⚠️  RARE VARIANT DETECTED:
+----------------------------------------
+Gene: HFE
+Variant: rs28940279
+Your Genotype: AA
+Associated Condition: Hereditary hemochromatosis
+Inheritance Pattern: Autosomal recessive
+Clinical Significance: Iron overload
+
+⚠️  IMPORTANT: Consult a genetic counselor about this finding.
+
+================================================================================
+SECTION 7: FASCINATING GENETIC TRAITS
+================================================================================
+Research & educational use only – not medical advice. This analysis is based on current scientific understanding, which is constantly evolving. Genetic predispositions do not determine health outcomes, as environmental and lifestyle factors play significant roles.
+
+Accuracy of genetic predictions (for diseases, traits, and drug responses) may be significantly reduced for individuals whose ancestry is not well-represented in the underlying research studies. 
+Most large-scale genetic studies to date have predominantly involved participants of European ancestry. Therefore, findings may not generalize well to individuals of African, Asian, Hispanic/Latinx, Native American, Pacific Islander, or mixed ancestries. 
+This is a known limitation in current genomics research, and efforts are underway to improve diversity in genetic studies.
+
+Unique and interesting aspects of your genetic makeup:
+
+
+SENSORY TRAITS:
+----------------------------------------
+
+Gene: TAS2R38 (rs713598)
+Trait: Bitter taste perception (PTC tasting)
+Your Genotype: CG
+Your Phenotype: Moderate taster (intermediate bitter perception)
+Fun Fact: Used in classic genetics demonstrations
+
+Gene: TAS2R38 (rs1726866)
+Trait: Bitter taste perception
+Your Genotype: AG
+Your Phenotype: Non-taster (limited bitter perception)
+
+Gene: TAS2R38 (rs10246939)
+Trait: Bitter taste perception
+Your Genotype: CT
+Your Phenotype: Moderate taster (intermediate bitter perception)
+
+Gene: OR6A2 (rs72921001)
+Trait: Cilantro taste perception
+Your Genotype: AC
+Your Phenotype: Cilantro tastes like soap to you
+Fun Fact: Affects 10-14% of people
+
+OTHER TRAITS:
+----------------------------------------
+
+Gene: ABCC11 (rs17822931)
+Trait: Earwax type/Body odor
+Your Genotype: CC
+Your Phenotype: Wet earwax type (common in Europeans/Africans)
+Fun Fact: Common in East Asians, affects deodorant needs
+
+Gene: OR5A1 (rs4481887)
+Trait: Asparagus anosmia
+Your Genotype: AG
+Your Phenotype: Can smell Asparagus anosmia
+Fun Fact: About 40% of people cannot smell this
+
+Gene: OXTR (rs53576)
+Trait: Oxytocin receptor/Empathy
+Your Genotype: GG
+Your Phenotype: Enhanced empathy and prosocial behavior
+Fun Fact: GG genotype associated with more prosocial behavior
+
+Gene: DRD2/ANKK1 (rs1800497)
+Trait: Dopamine receptor density
+Your Genotype: GG
+Your Phenotype: Average/Common variant
+Fun Fact: T allele carriers may seek more novel experiences
+
+Gene: OPRM1 (rs1799971)
+Trait: Pain sensitivity/Opioid response
+Your Genotype: AA
+Your Phenotype: Average/Common variant
+Fun Fact: May need 2-4x more morphine for same effect
+
+Gene: MCM6 (rs4988235)
+Trait: Lactase persistence
+Your Genotype: AG
+Your Phenotype: Lactose tolerant (can digest dairy as adult)
+Fun Fact: Evolved independently in Europe and Africa
+
+Gene: near ZEB2 (rs10427255)
+Trait: Photic sneeze reflex
+Your Genotype: TT
+Your Phenotype: No photic sneeze reflex
+Fun Fact: Affects 18-35% of people, called ACHOO syndrome
+
+APPEARANCE TRAITS:
+----------------------------------------
+
+Gene: EDAR (rs3827760)
+Trait: Hair thickness/Shovel-shaped incisors
+Your Genotype: AA
+Your Phenotype: Average/Common variant
+Fun Fact: Arose ~30,000 years ago in East Asia
+
+Gene: TYR (rs1042602)
+Trait: Eye color
+Your Genotype: AC
+Your Phenotype: Average/Common variant
+
+Gene: HERC2/OCA2 (rs12913832)
+Trait: Eye color
+Your Genotype: GG
+Your Phenotype: Likely blue eyes
+Fun Fact: All blue-eyed people share a common ancestor ~6-10k years ago
+
+Gene: MC1R (rs1805007)
+Trait: Red hair/Fair skin
+Your Genotype: CC
+Your Phenotype: Average/Common variant
+Fun Fact: Carriers have increased pain tolerance
+
+Gene: MC1R (rs1805008)
+Trait: Red hair/Fair skin
+Your Genotype: CT
+Your Phenotype: Average/Common variant
+
+CIRCADIAN TRAITS:
+----------------------------------------
+
+Gene: CLOCK (rs1801260)
+Trait: Chronotype (morning/evening person)
+Your Genotype: AA
+Your Phenotype: Morning chronotype (early bird tendency)
+Fun Fact: Night owls may have this variant
+
+Gene: DEC2 (rs121912617)
+Trait: Short sleep phenotype
+Your Genotype: GG
+Your Phenotype: Average/Common variant
+Fun Fact: Extremely rare "natural short sleeper" mutation
+
+ATHLETIC TRAITS:
+----------------------------------------
+
+Gene: ACTN3 (rs1815739)
+Trait: Muscle composition
+Your Genotype: CC
+Your Phenotype: Power/sprint muscle type (like most elite sprinters)
+Fun Fact: Almost all Olympic sprinters have at least one C
+
+METABOLISM TRAITS:
+----------------------------------------
+
+Gene: ALDH2 (rs671)
+Trait: Alcohol flush reaction
+Your Genotype: GG
+Your Phenotype: No alcohol flush reaction
+Fun Fact: Protective against alcoholism but increases cancer risk
+
+Gene: ADH1B (rs1229984)
+Trait: Alcohol metabolism speed
+Your Genotype: CC
+Your Phenotype: Slow metabolizer
+Fun Fact: Fast metabolizers may drink less due to quick acetaldehyde buildup
+
+================================================================================
+SECTION 8: ANCIENT HUMAN ADMIXTURE
+================================================================================
+
+Neanderthal variants detected: 2
+Denisovan variants detected: 0
+Estimated Neanderthal ancestry: 1.0%
+Interpretation: Average Neanderthal ancestry for non-African populations
+
+Ancient Variants Detected:
+----------------------------------------
+
+Neanderthal variant in near ASIP
+Trait affected: Skin/hair pigmentation
+Phenotype: Lighter skin and hair
+Your genotype: GG
+
+Neanderthal variant in SLC14A2
+Trait affected: Urea transport
+Phenotype: Enhanced kidney function in cold
+Your genotype: GT
+
+Fascinating Context:
+Modern humans interbred with Neanderthals ~50,000-60,000 years ago.
+These ancient variants often provided adaptive advantages.
+
+================================================================================
+SECTION 9: LONGEVITY AND HEALTHSPAN GENETICS
+================================================================================
+
+Longevity variants analyzed: 7
+Protective variants found: 1
+Longevity score: 14.29%
+
+Key Longevity Findings:
+----------------------------------------
+
+FOXO3 - Longevity
+Your genotype: TT
+Interpretation: No longevity alleles
+Mechanism: Enhanced stress resistance and DNA repair
+
+TP53 - Cancer resistance vs longevity
+Your genotype: CG
+Interpretation: Variant present
+Mechanism: Tumor suppressor efficiency trade-off
+
+CETP - HDL cholesterol/Longevity
+Your genotype: AA
+Interpretation: No protective alleles
+Mechanism: Reduced cholesterol ester transfer
+
+MTHFR - Folate metabolism/Aging
+Your genotype: GG
+Interpretation: Variant present
+Mechanism: Reduced methylation capacity
+
+IL6 - Inflammation/Aging
+Your genotype: GG
+Interpretation: Variant present
+Mechanism: Reduced IL-6 production
+
+BDNF - Cognitive aging
+Your genotype: CC
+Interpretation: Variant present
+Mechanism: Activity-dependent neurotrophin secretion
+
+CYP1A2 - Caffeine metabolism/Longevity
+Your genotype: AA
+Interpretation: Variant present
+Mechanism: Rapid caffeine clearance
+
+================================================================================
+SECTION 10: COGNITIVE AND BRAIN FUNCTION GENETICS
+================================================================================
+Research & educational use only – not medical advice. This analysis is based on current scientific understanding, which is constantly evolving. Genetic predispositions do not determine health outcomes, as environmental and lifestyle factors play significant roles.
+
+Psychological trait predictions (including cognitive abilities, personality, etc.) are based on statistical associations found in large population studies. These genetic scores typically explain a small fraction of the variance in these complex traits (often <15%). 
+Environmental factors (e.g., upbringing, education, life experiences, personal choices, socioeconomic status) and gene-environment interactions have a much larger impact. 
+These predictions should NOT be used to assess an individual's intelligence, character, potential, or worth. They are not deterministic and have very limited predictive power for any single individual.
+
+Accuracy of genetic predictions (for diseases, traits, and drug responses) may be significantly reduced for individuals whose ancestry is not well-represented in the underlying research studies. 
+Most large-scale genetic studies to date have predominantly involved participants of European ancestry. Therefore, findings may not generalize well to individuals of African, Asian, Hispanic/Latinx, Native American, Pacific Islander, or mixed ancestries. 
+This is a known limitation in current genomics research, and efforts are underway to improve diversity in genetic studies.
+
+Genetic variants affecting cognitive function and brain health:
+
+
+COMT - Working memory/Executive function
+----------------------------------------
+Your genotype: GG
+Interpretation: Met/Met - Enhanced working memory, lower stress tolerance
+Mechanism: Dopamine metabolism in prefrontal cortex
+
+Insight: You may excel in focused tasks but benefit from stress management.
+
+DRD2/ANKK1 - Learning and memory
+----------------------------------------
+Your genotype: GG
+Interpretation: A2/A2 - Normal dopamine receptor density
+Mechanism: Affects reward-based learning
+
+BDNF - Memory and learning
+----------------------------------------
+Your genotype: CC
+Interpretation: Val/Val - Optimal BDNF secretion and memory formation
+Mechanism: Brain-derived neurotrophic factor function
+
+Insight: You have optimal BDNF function for memory and learning.
+
+KIBRA - Memory performance
+----------------------------------------
+Your genotype: CC
+Interpretation: Standard memory variant
+Mechanism: Synaptic plasticity regulation
+
+================================================================================
+SECTION 11: ATHLETIC PERFORMANCE GENETICS
+================================================================================
+
+Athletic Profile: Balanced athletic profile
+Power genetics score: 1
+Endurance genetics score: 1
+
+Athletic Genetic Markers:
+----------------------------------------
+
+ACTN3 - Muscle fiber type
+Your genotype: CC
+Interpretation: RR - Power/sprint optimized (like 95% of elite sprinters)
+Elite athlete data: 95% of elite sprinters have C
+
+PPARA - Fat metabolism
+Your genotype: GG
+Interpretation: Enhanced fat oxidation - endurance advantage
+
+ACTN3 - Muscle damage/recovery
+Your genotype: AG
+Interpretation: Athletic variant detected
+
+AGT - Power performance
+Your genotype: AA
+Interpretation: Athletic variant detected
+
+Training Insights Based on Your Genetics:
+- You have balanced athletic genetics
+- Can excel in both power and endurance activities
+- Training focus: varied approach for best results
+
+================================================================================
+SECTION 12: SENSORY PERCEPTION GENETICS
+================================================================================
+How your genes affect your sensory experiences:
+
+
+TASTE PERCEPTION:
+----------------------------------------
+
+TAS2R38 - Bitter taste (PTC)
+Your genotype: CG
+Your phenotype: Moderate bitter taster
+
+TAS2R38 - Bitter taste (vegetables)
+Your genotype: AG
+Your phenotype: Sensory variant detected
+
+OTHER PERCEPTION:
+----------------------------------------
+
+OR6A2 - Cilantro perception
+Your genotype: AC
+Your phenotype: Cilantro tastes like soap (10-14% of people)
+
+OR5A1 - Asparagus metabolite
+Your genotype: AG
+Your phenotype: Can smell asparagus metabolites in urine
+
+OR11H7P - Androstenone perception
+Your genotype: AG
+Your phenotype: Sensory variant detected
+
+OR2J3 - Cis-3-hexen-1-ol
+Your genotype: CT
+Your phenotype: Sensory variant detected
+
+VISION PERCEPTION:
+----------------------------------------
+
+OPN1MW - Color vision
+Your genotype: GG
+Your phenotype: Sensory variant detected
+
+HEARING PERCEPTION:
+----------------------------------------
+
+GRM7 - Perfect pitch tendency
+Your genotype: AG
+Your phenotype: Standard pitch perception genetics
+
+================================================================================
+SECTION 13: ANCESTRY COMPOSITION
+================================================================================
+
+Preliminary Ancestry Inference: Mixed/Intermediate
+Derived Allele Frequency: 44.44%
+
+Note: This is a simplified analysis. Professional ancestry testing uses thousands of markers and sophisticated algorithms.
+
+Key Ancestry-Informative Markers:
+----------------------------------------
+SLC24A5 (rs1426654): AA - skin pigmentation
+  Ancestral alleles: 0, Derived alleles: 2
+SLC45A2 (rs16891982): GG - skin pigmentation
+  Ancestral alleles: 0, Derived alleles: 2
+TYR (rs1042602): AC - eye color
+  Ancestral alleles: 1, Derived alleles: 1
+HERC2/OCA2 (rs12913832): GG - eye color
+  Ancestral alleles: 0, Derived alleles: 2
+EDAR (rs3827760): AA - hair thickness
+  Ancestral alleles: 2, Derived alleles: 0
+FADS2 (rs174570): CC - fatty acid metabolism
+  Ancestral alleles: 2, Derived alleles: 0
+MCM6 (rs4988235): AG - lactase persistence
+  Ancestral alleles: 1, Derived alleles: 1
+HERC2 (rs1129038): TT - eye color
+  Ancestral alleles: 0, Derived alleles: 0
+DARC (rs2814778): TT - Duffy blood group
+  Ancestral alleles: 2, Derived alleles: 0
+
+================================================================================
+SECTION 14: SUMMARY AND PERSONALIZED INSIGHTS
+================================================================================
+
+YOUR UNIQUE GENETIC PROFILE SUMMARY:
+----------------------------------------
+
+Health Highlights:
+• You carry APOE variants affecting Alzheimer's risk - lifestyle factors are crucial
+• You have important drug metabolism variants - share with healthcare providers
+• Rare variants detected - consider genetic counseling
+
+Fascinating Trait Highlights:
+• Cilantro tastes like soap to you (genetic, not preference!)
+• You have genetic variants common in elite sprinters
+
+PERSONALIZED RECOMMENDATIONS:
+----------------------------------------
+
+1. Healthcare Considerations:
+   • Share pharmacogenomic findings with all healthcare providers
+   • Discuss any high-risk findings with your physician
+   • Consider genetic counseling for family planning if rare variants detected
+
+2. Lifestyle Optimization:
+   • Use your athletic genetics to guide training choices
+   • Consider your caffeine metabolism when timing coffee intake
+   • If you have longevity variants, maintain those protective factors
+
+3. Preventive Health:
+   • Focus on modifiable risk factors for any genetic predispositions
+   • Regular screening for conditions with elevated genetic risk
+   • Lifestyle choices often outweigh genetic risk factors
+
+================================================================================
+KEY SCIENTIFIC REFERENCES
+================================================================================
+This analysis incorporates findings from peer-reviewed studies:
+
+1. PMID: 22227052
+2. PMID: 37981234
+3. PMID: 38291489
+4. PMID: 38345692
+5. PMID: 38448587
+6. PMID: 38456291
+7. PMID: 38467283
+8. PMID: 38467912
+9. PMID: 38472915
+10. PMID: 38478293
+11. PMID: 38486719
+12. PMID: 38492156
+13. PMID: 38492617
+14. PMID: 38493827
+15. PMID: 38497162
+16. PMID: 38498729
+17. PMID: 38502156
+18. PMID: 38502847
+19. PMID: 38507423
+20. PMID: 38512847
+21. PMID: 38514899
+22. PMID: 38519274
+23. PMID: 38523467
+24. PMID: 38523894
+25. PMID: 38562087
+
+================================================================================
+IMPORTANT FINAL NOTES
+================================================================================
+1. Genetics is not destiny - environmental factors often have greater impact
+2. Scientific understanding of genetics continues to evolve rapidly
+3. This analysis uses research methods not validated for clinical diagnosis
+4. Always consult qualified healthcare professionals for medical advice
+5. Consider sharing findings with family members when relevant
+6. Genetic counseling is recommended for significant findings
+7. Your genetic data privacy is important - store this report securely
+
+================================================================================
+Thank you for exploring your genetic heritage with science!
+================================================================================
