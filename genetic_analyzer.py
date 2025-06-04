@@ -50,14 +50,20 @@ class GeneticAnalyzer:
                 'trait': 'Alzheimer\'s disease risk',
                 'risk_allele': 'C',
                 'protective_allele': 'T',
-                'effect': 'Major genetic risk factor'
+                'effect': 'Major genetic risk factor',
+                'per_allele_or': 3.7,
+                'ci_lower': 3.2,
+                'ci_upper': 4.2
             },
             'rs7412': {
                 'gene': 'APOE',
                 'trait': 'Alzheimer\'s disease risk',
-                'risk_allele': 'T',
-                'protective_allele': 'C',
-                'effect': 'Modifies APOE status'
+                'risk_allele': 'C',
+                'protective_allele': 'T',
+                'effect': 'Modifies APOE status',
+                'per_allele_or': 3.7,
+                'ci_lower': 3.2,
+                'ci_upper': 4.2
             },
             
             # MTHFR variants (folate metabolism)
@@ -119,8 +125,11 @@ class GeneticAnalyzer:
                 'taster_allele': 'G',
                 'non_taster_allele': 'C',
                 'effect': 'PTC taste sensitivity'
-            }
+            },
         }
+        # Strand harmonization for key SNPs (e.g., rs429358)
+        self.flip_map = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
+        self.strand_flip_snps = ['rs429358']
         
     def load_data(self):
         """Load and parse the 23andMe data file."""
@@ -229,12 +238,27 @@ class GeneticAnalyzer:
         # Handle different types of variant interpretations
         if 'risk_allele' in variant_info:
             risk_count = genotype.count(variant_info['risk_allele'])
-            if risk_count == 0:
-                interpretation.append("No risk alleles present")
-            elif risk_count == 1:
-                interpretation.append("One risk allele present (heterozygous)")
-            elif risk_count == 2:
-                interpretation.append("Two risk alleles present (homozygous)")
+            if 'per_allele_or' in variant_info:
+                or_het = variant_info['per_allele_or']
+                ci_lo = variant_info['ci_lower']
+                ci_hi = variant_info['ci_upper']
+                if risk_count == 0:
+                    interpretation.append("No risk alleles present")
+                elif risk_count == 1:
+                    or_val = or_het
+                    interpretation.append(f"Approximate OR: {or_val:.2f} (95% CI {ci_lo:.2f}–{ci_hi:.2f}) for heterozygote")
+                elif risk_count == 2:
+                    or_val = or_het**2
+                    ci_lo_hom = ci_lo**2
+                    ci_hi_hom = ci_hi**2
+                    interpretation.append(f"Approximate OR: {or_val:.2f} (95% CI {ci_lo_hom:.2f}–{ci_hi_hom:.2f}) for homozygote")
+            else:
+                if risk_count == 0:
+                    interpretation.append("No risk alleles present")
+                elif risk_count == 1:
+                    interpretation.append("One risk allele present (heterozygous)")
+                elif risk_count == 2:
+                    interpretation.append("Two risk alleles present (homozygous)")
         
         if 'fast_allele' in variant_info and 'slow_allele' in variant_info:
             if genotype == variant_info['fast_allele'] * 2:

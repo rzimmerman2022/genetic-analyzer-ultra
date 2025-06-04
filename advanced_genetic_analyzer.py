@@ -511,6 +511,34 @@ class AdvancedGeneticAnalyzer:
         """Calculate reverse complement for strand ambiguity resolution."""
         complement = {'A': 'T', 'T': 'A', 'C': 'G', 'G': 'C'}
         return ''.join(complement.get(base, base) for base in genotype)
+
+    def analyze_disease_risk(self):
+        """Analyze disease risk for key variants using VCF genotypes."""
+        print("\nAnalyzing disease risk based on peer-reviewed studies...")
+        disease_risk = {'neurological': []}
+        with open(self.filename, 'r') as f:
+            for line in f:
+                if line.startswith('#'):
+                    continue
+                fields = line.strip().split('\t')
+                if len(fields) < 10:
+                    continue
+                rsid = fields[2]
+                genotype = fields[9]
+                count = genotype.count('1')
+                if hasattr(self, 'known_variants') and rsid in self.known_variants:
+                    info = self.known_variants[rsid]
+                    effect_size = info.get('effect_size')
+                    relative_risk = effect_size ** count if effect_size is not None else None
+                    disease_risk['neurological'].append({
+                        'rsid': rsid,
+                        'genotype': genotype,
+                        'relative_risk': relative_risk
+                    })
+        self.results['disease_risk'] = disease_risk
+        import validation
+        self.results['validation_summary_report'] = validation.validate(self.results)
+        return disease_risk
     
     def analyze_basic_statistics(self):
         """

@@ -19,7 +19,7 @@ VALIDATION_RULES = {
         'value_key': 'relative_risk', # Key in the finding dict that holds the value to check
         'check_type': 'value_deviation' # Specify check type
     },
-    'APOE_Alz_Direction_Conflict': { # New rule for direction conflict
+    'APOE_Alz_Direction': { # New rule for direction conflict
         'rsids': ['rs429358'], # Focus on one variant for direction
         'metric_path': ['disease_risk', 'neurological'],
         'target_rsid_for_metric': 'rs429358',
@@ -147,7 +147,7 @@ def validate(results: dict) -> list:
                     rule_outcome['details'] = f"Genotype {hfe_genotype} for {config['target_rsid_for_metric']} does not match rule's target genotype."
 
         elif check_type == 'direction_conflict':
-            if rule_name == 'APOE_Alz_Direction_Conflict':
+            if rule_name == 'APOE_Alz_Direction':
                 calculated_or = get_nested_value(results, config['metric_path'], config['target_rsid_for_metric'], config['value_key'])
                 
                 if calculated_or is not None:

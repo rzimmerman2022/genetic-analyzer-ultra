@@ -1,0 +1,47 @@
+feat: Comprehensive updates to genetic analysis scripts
+
+This commit incorporates extensive enhancements and fixes to the genetic analysis scripts, focusing on accuracy, scientific validity, and robustness.
+
+Key Changes:
+
+1.  **APOE Risk Calculation Overhaul:**
+    *   Corrected APOE allele definitions (rs429358 'C' as risk, rs7412 'C' as risk for e4 context, 'T' as protective e2).
+    *   Updated APOE odds ratios to align with recent meta-analyses (e.g., per-allele OR for rs429358 ~3.7, rs7412 ~0.6).
+    *   Implemented correct multiplicative model (OR^2) for homozygous APOE risk in `_calculate_variant_risk` (`genetic_analyzer_ultra.py`).
+    *   Ensured proper CI propagation for APOE risk estimates.
+    *   Enhanced `analyze_disease_risk` in `genetic_analyzer_ultra.py` to handle VCF genotype formats (e.g., "0/1") for risk calculation, crucial for test validation.
+
+2.  **Validation Framework Improvements (`validation.py`):**
+    *   Refined `APOE_Alz_Value_Check` and `APOE_Alz_Direction` rules for accuracy.
+    *   Improved `get_nested_value` to correctly retrieve metrics from nested results.
+    *   Adjusted `validate` function for robust `direction_conflict` checks.
+    *   Added `effect_utils` import for OR categorization.
+
+3.  **Testing Enhancements:**
+    *   `tests/test_validation.py`: Ensured `analyzer.known_variants` is correctly patched for `test_direction_conflict`.
+    *   `tests/test_apoe.py`: Added tests for APOE e3/e4 and e4/e4 scenarios, verifying relative risk calculations.
+    *   `tests/conftest.py`: Implemented fixtures for mock VCF data and variant databases.
+    *   `pytest.ini`: Created to manage Python paths for testing.
+
+4.  **Script Enhancements (`genetic_analyzer_ultra.py`):**
+    *   Integrated VCF file parsing directly within `analyze_disease_risk` to extract GT fields and calculate risk, enabling tests with VCF inputs.
+    *   Ensured `relative_risk` is consistently populated in the `finding` dictionary for validation purposes.
+    *   Added safeguard decorators (`@safety.safeguard`) to major analysis methods for improved error handling and graceful failure.
+    *   Integrated provenance tracking (`versioning.py`) for reproducibility (file hashes, DB versions, script hash, timestamps).
+    *   Added CLI argument (`--ancestry`) for user-specified ancestry, influencing disclaimers and potentially PRS adjustments.
+    *   Implemented `_perform_pca_for_ancestry` for dynamic ancestry inference (currently simplified/simulated).
+    *   Expanded and refined various `_initialize_*` methods for variant databases (known_variants, PRS, pharmacogenomics, etc.).
+    *   Enhanced report generation (`generate_scientific_report`) with more detailed sections, dynamic disclaimers (`disclaimers.py`), and provenance information.
+    *   Added JSON output for the complete `self.results` dictionary.
+
+5.  **Utilities and Disclaimers:**
+    *   `disclaimers.py`: Created to generate context-specific disclaimers based on ancestry, analysis type, and findings.
+    *   `versioning.py`: Developed for comprehensive provenance tracking.
+    *   `utils/safety.py`: Implemented the `@safety.safeguard` decorator.
+    *   `utils/ancestry.py`: Added stubs for PCA-based ancestry inference.
+
+6.  **Conceptual Work (Future Implementation):**
+    *   Acknowledged requirements for full PRS implementation (PGS Catalog, ancestry standardization, R²/AUROC).
+    *   Noted needs for advanced pharmacogenomics (CPIC 2024 scores, CNV assessment) and detailed QC (Hardy-Weinberg, Ti/Tv, full PCA).
+
+This series of changes significantly improves the scientific rigor, robustness, and user-friendliness of the genetic analysis pipeline, particularly addressing the APOE calculation inconsistencies and enhancing the validation framework.

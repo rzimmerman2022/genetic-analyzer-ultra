@@ -1231,121 +1231,6 @@ class AdvancedGeneticAnalyzer:
     def analyze_disease_risk(self):
         """Comprehensive disease risk analysis based on latest research."""
         print("\nAnalyzing disease risk based on peer-reviewed studies...")
-
-        # If input is a VCF, parse directly for GT field
-        if self.filename.lower().endswith('.vcf'):
-            risk_findings_vcf = {'neurological': []} # Use a different name for clarity
-            with open(self.filename, 'r') as f:
-                for line in f:
-                    if line.startswith('#'):
-                        continue
-                    fields = line.strip().split('\t')
-                    if len(fields) < 10: continue # Need at least 10 fields for FORMAT and SAMPLE
-                    
-                    rsid = fields[2]
-                    ref_allele_vcf = fields[3]
-                    alt_alleles_vcf_str = fields[4]
-                    # Simplification: use first ALT allele if multiple are present (e.g., "A,T")
-                    alt_allele_vcf = alt_alleles_vcf_str.split(',')[0] 
-
-                    format_field = fields[8]
-                    sample_field = fields[9] # Assuming the first sample column
-                    
-                    gt_index = -1
-                    if 'GT' in format_field.split(':'):
-                        gt_index = format_field.split(':').index('GT')
-                    
-                    vcf_genotype_indices = None # e.g., "0/1"
-                    if gt_index != -1 and len(sample_field.split(':')) > gt_index:
-                        vcf_genotype_indices = sample_field.split(':')[gt_index]
-                    
-                    if vcf_genotype_indices and rsid in self.known_variants:
-                        info = self.known_variants[rsid]
-                        effect_size = info.get('effect_size')
-                        defined_risk_allele = info.get('risk_allele')
-
-                        if defined_risk_allele is None or effect_size is None:
-                            # Skip if essential info for risk calculation is missing
-                            print(f"Skipping {rsid} in VCF processing: missing defined risk allele or effect size in known_variants.")
-                            continue
-
-                        risk_allele_count_in_gt = 0
-                        # GT field can be like "0/1", "1|0", "1/1", or even "./." for no call
-                        # Split by '/' or '|' to handle unphased/phased
-                        gt_parts = []
-                        if '/' in vcf_genotype_indices:
-                            gt_parts = vcf_genotype_indices.split('/')
-                        elif '|' in vcf_genotype_indices:
-                            gt_parts = vcf_genotype_indices.split('|')
-                        else: # Could be haploid like "0" or "1", or uncalled like "."
-                            gt_parts = [vcf_genotype_indices]
-                        
-                        valid_gt_part_found = False
-                        for allele_idx_str in gt_parts:
-                            if not allele_idx_str.isdigit(): # Skip non-numeric parts like "."
-                                continue
-                            valid_gt_part_found = True
-                            allele_idx = int(allele_idx_str)
-                            
-                            current_allele_from_vcf = ""
-                            if allele_idx == 0: # 0 refers to REF allele
-                                current_allele_from_vcf = ref_allele_vcf
-                            elif allele_idx == 1: # 1 refers to the first ALT allele
-                                current_allele_from_vcf = alt_allele_vcf
-                            # Extend here if multi-allelic sites (ALT has A,G,T) and GT has e.g. 0/2
-                            # For now, assumes biallelic or uses first ALT.
-                                
-                            if current_allele_from_vcf == defined_risk_allele:
-                                risk_allele_count_in_gt += 1
-                        
-                        if not valid_gt_part_found: # If GT was e.g. "./."
-                            print(f"Skipping {rsid} in VCF processing: GT field '{vcf_genotype_indices}' not parsable for allele counts.")
-                            continue
-
-                        relative_risk = effect_size ** risk_allele_count_in_gt
-                        
-                        risk_assessment_vcf = {
-                            'relative_risk': relative_risk,
-                            'interpretation': f"{risk_allele_count_in_gt} risk allele(s) ('{defined_risk_allele}') from VCF. REF={ref_allele_vcf}, ALT={alt_allele_vcf}, GT={vcf_genotype_indices}",
-                            'risk_level': 'Calculated from VCF', 
-                            'effect_category': effect_utils.categorize_or(relative_risk) if relative_risk is not None else 'unknown'
-                        }
-                        # Add CI propagation for VCF path
-                        if 'ci_95' in info and info['ci_95'] and len(info['ci_95']) == 2:
-                             lower_ci_allele, upper_ci_allele = info['ci_95']
-                             if risk_allele_count_in_gt == 0: risk_assessment_vcf['relative_risk_ci_95'] = (1.0,1.0)
-                             elif risk_allele_count_in_gt == 1: risk_assessment_vcf['relative_risk_ci_95'] = (lower_ci_allele, upper_ci_allele)
-                             elif risk_allele_count_in_gt == 2: # Assuming homozygous
-                                 if effect_size >=1: risk_assessment_vcf['relative_risk_ci_95'] = (lower_ci_allele**1.5 if lower_ci_allele > 0 else 0, upper_ci_allele**1.5)
-                                 else: risk_assessment_vcf['relative_risk_ci_95'] = tuple(sorted((upper_ci_allele**(1/1.5) if upper_ci_allele > 0 else 0, lower_ci_allele**(1/1.5))))
-
-
-                        finding = {
-                            'rsid': rsid,
-                            'gene': info.get('gene'),
-                            'trait': info.get('trait'),
-                            'genotype': vcf_genotype_indices, # Store VCF GT string
-                            'relative_risk': relative_risk, # Crucial for validation
-                            'risk_assessment': risk_assessment_vcf,
-                            'mechanism': info.get('mechanism', 'Unknown'),
-                            'pmid': info.get('pmid', 'N/A'),
-                            'maf': info.get('maf', 'N/A')
-                        }
-                        risk_findings_vcf['neurological'].append(finding)
-                        
-            self.results['disease_risk'] = dict(risk_findings_vcf)
-            import validation # Ensure validation is imported
-            self.results['validation_summary_report'] = validation.validate(self.results)
-            # Print validation summary for VCF path as well
-            print("Validation Summary (VCF Path):")
-            if not self.results['validation_summary_report']:
-                print("  No validation rules defined or triggered, or no discrepancies found.")
-            for item in self.results['validation_summary_report']:
-                print(f"  Rule: {item.get('rule_name', 'N/A')}, Status: {item.get('status', 'N/A')}, Details: {item.get('details', 'No details')}")
-            return # Important: return here to skip 23andMe specific parsing if VCF is handled
-
-        # Original non-VCF (23andMe file) logic starts here
-        risk_findings = defaultdict(list)
         
         risk_findings = defaultdict(list)
         
@@ -1363,7 +1248,6 @@ class AdvancedGeneticAnalyzer:
                     'gene': info['gene'],
                     'trait': info['trait'],
                     'genotype': genotype,
-                    'relative_risk': risk_analysis.get('relative_risk'),
                     'risk_assessment': risk_analysis,
                     'mechanism': info.get('mechanism', 'Unknown'),
                     'pmid': info.get('pmid', 'N/A'),
@@ -1413,13 +1297,6 @@ class AdvancedGeneticAnalyzer:
         """Calculate risk based on genotype and published effect sizes."""
         risk_analysis = {}
         effect_size = variant_info.get('effect_size') # Get effect_size, could be None
-
-        # Support VCF-style genotype (e.g., '0/1') when no risk_allele key is provided
-        if effect_size is not None and 'risk_allele' not in variant_info and '/' in genotype:
-            # Count '1's in GT field as risk allele dosage
-            count = genotype.count('1')
-            risk_analysis['relative_risk'] = effect_size ** count
-            return risk_analysis
 
         if 'risk_allele' in variant_info and effect_size is not None:
             risk_allele = variant_info['risk_allele']
