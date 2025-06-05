@@ -1,12 +1,6 @@
-import sys
-import os
-# Ensure project root (one level up) is on sys.path so tests can import modules from c:/DNA
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
+"""Common test fixtures for the genetic analyzer tests."""
 
 import pytest
-import pathlib
 
 @pytest.fixture
 def toy_vcf_content():
