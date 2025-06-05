@@ -27,8 +27,7 @@ from scipy import stats
 import math
 
 # Import new utility modules
-import effect_utils
-import validation
+import effect_utils 
 import disclaimers
 import versioning
 from utils import ancestry 
@@ -1077,18 +1076,22 @@ class AdvancedGeneticAnalyzer:
             # Quality control steps
             self.data['chromosome'] = self.data['chromosome'].astype(str)
             
-            # Count no-calls before removing them
+            # Count total variants before removing no-calls
             total_original = len(self.data)
-            
+
             # Remove no-calls, deletions, and insertions
             self.data = self.data[~self.data['genotype'].isin(['--', 'DD', 'II'])]
-            
+
             # Calculate call rate
-            self.metadata['call_rate'] = len(self.data) / total_original if total_original > 0 else 0
-            
+            self.metadata['call_rate'] = (
+                len(self.data) / total_original if total_original > 0 else 0
+            )
+
             # Check for strand consistency
-            self.data['genotype_sorted'] = self.data['genotype'].apply(lambda x: ''.join(sorted(x)))
-            
+            self.data['genotype_sorted'] = self.data['genotype'].apply(
+                lambda x: ''.join(sorted(x))
+            )
+
             print(f"Successfully loaded {len(self.data):,} genetic variants")
             print(f"Call rate: {self.metadata['call_rate']:.2%}")
             print(f"Chromosomes present: {sorted(self.data['chromosome'].unique())}")
@@ -1189,8 +1192,7 @@ class AdvancedGeneticAnalyzer:
         # Simplified: Use a small subset of variants and simulate PCA
         # In a real scenario, you'd use a curated list of ancestry-informative markers (AIMs)
         # or a large number of common SNPs.
-        
-        # Ensure 'genotype' column exists and handle potential non-numeric genotypes
+        # Use up to 1000 variants for this simplified example
         # This is highly simplified: real PCA needs numeric encoding (0, 1, 2 for allele counts)
         # and careful SNP selection and filtering.
         
@@ -1304,7 +1306,11 @@ class AdvancedGeneticAnalyzer:
                             'effect_category': effect_utils.categorize_or(relative_risk) if relative_risk is not None else 'unknown'
                         }
                         # Add CI propagation for VCF path
-                        if 'ci_95' in info and info['ci_95'] and len(info['ci_95']) == 2:
+                        if (
+                            'ci_95' in info
+                            and info['ci_95']
+                            and len(info['ci_95']) == 2
+                        ):
                             lower_ci_allele, upper_ci_allele = info['ci_95']
                             if risk_allele_count_in_gt == 0:
                                 risk_assessment_vcf['relative_risk_ci_95'] = (1.0, 1.0)
@@ -1323,10 +1329,10 @@ class AdvancedGeneticAnalyzer:
                                     risk_assessment_vcf['relative_risk_ci_95'] = tuple(
                                         sorted(
                                             (
-                                                upper_ci_allele ** (1 / 1.5)
+                                                upper_ci_allele**(1 / 1.5)
                                                 if upper_ci_allele > 0
                                                 else 0,
-                                                lower_ci_allele ** (1 / 1.5),
+                                                lower_ci_allele**(1 / 1.5),
                                             )
                                         )
                                     )
@@ -1346,6 +1352,7 @@ class AdvancedGeneticAnalyzer:
                         risk_findings_vcf['neurological'].append(finding)
                         
             self.results['disease_risk'] = dict(risk_findings_vcf)
+            import validation # Ensure validation is imported
             self.results['validation_summary_report'] = validation.validate(self.results)
             # Print validation summary for VCF path as well
             print("Validation Summary (VCF Path):")
