@@ -1,7 +1,6 @@
-"""Pytest fixtures for test data."""
+"""Common test fixtures for the genetic analyzer tests."""
 
 import pytest
-import pathlib
 
 @pytest.fixture
 def toy_vcf_content():
