@@ -299,7 +299,6 @@ class AdvancedGeneticAnalyzer:
                 'gene': 'TAS2R38',
                 'trait': 'Bitter taste perception (PTC tasting)',
                 'taster_allele': 'C',
-                'non_taster_allele': 'G',
                 'phenotype': 'Ability to taste phenylthiocarbamide',
                 'fun_fact': 'Used in classic genetics demonstrations'
             },
@@ -307,14 +306,12 @@ class AdvancedGeneticAnalyzer:
                 'gene': 'TAS2R38',
                 'trait': 'Bitter taste perception',
                 'taster_allele': 'C',
-                'non_taster_allele': 'T',
                 'phenotype': 'Sensitivity to bitter compounds in vegetables'
             },
             'rs10246939': {
                 'gene': 'TAS2R38',
                 'trait': 'Bitter taste perception',
                 'taster_allele': 'C',
-                'non_taster_allele': 'T',
                 'phenotype': 'Affects preference for cruciferous vegetables'
             },
             'rs17822931': {
