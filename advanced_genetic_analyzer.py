@@ -187,7 +187,17 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+<<<<<<< HEAD
 from scipy import stats
+=======
+from collections import defaultdict
+from datetime import datetime
+import os
+import scipy.stats as stats
+
+import warnings
+warnings.filterwarnings('ignore')
+>>>>>>> 0e9ab3aa2b3a2b9eaa791fe626bd42a82f2cc1a9
 
 # ============================================================================
 # CONFIGURATION AND SETUP
@@ -2913,5 +2923,318 @@ class GeneticAnalyzer:
                           f"Key: PM=Poor Metabolizer, IM=Intermediate, "
                           f"NM=Normal, RM/UM=Rapid/Ultrarapid")
             
+<<<<<<< HEAD
             plt.figtext(0.02, 0.02, summary_text, fontsize=10,
                        bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+=======
+            # Basic stats
+            if 'basic_stats' in self.results:
+                stats = self.results['basic_stats']
+                f.write(f"Total High-Quality Variants Analyzed: {stats['total_variants']:,}\n")
+                f.write(f"Heterozygosity Rate: {stats['heterozygosity_rate']:.2%}\n")
+                f.write("  (Population average: 15-20%)\n\n")
+            
+            # Key findings summary
+            f.write("Key Findings:\n")
+            
+            # PRS summary
+            if 'prs_scores' in self.results:
+                high_risk_traits = []
+                low_risk_traits = []
+                
+                for trait, data in self.results['prs_scores'].items():
+                    if data['percentile'] >= 80:
+                        high_risk_traits.append(trait.replace('_', ' ').title())
+                    elif data['percentile'] <= 20:
+                        low_risk_traits.append(trait.replace('_', ' ').title())
+                
+                if high_risk_traits:
+                    f.write(f"• Elevated genetic risk (>80th percentile): {', '.join(high_risk_traits)}\n")
+                if low_risk_traits:
+                    f.write(f"• Reduced genetic risk (<20th percentile): {', '.join(low_risk_traits)}\n")
+            
+            # Pharmacogenomics summary
+            if 'pharmacogenomics' in self.results:
+                drug_actions = [p for p in self.results['pharmacogenomics'] 
+                              if 'avoid' in p['interpretation'].lower() or 'alternative' in p['interpretation'].lower()]
+                if drug_actions:
+                    f.write(f"• {len(drug_actions)} medications may require alternatives or dose adjustments\n")
+            
+            f.write("\n")
+            
+            # Detailed Sections
+            
+            # 1. Polygenic Risk Scores
+            if 'prs_scores' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("POLYGENIC RISK SCORES (PRS) ANALYSIS\n")
+                f.write("="*100 + "\n\n")
+                
+                f.write("Polygenic risk scores aggregate the effects of multiple genetic variants to\n")
+                f.write("estimate genetic predisposition. Scores are compared to population distributions.\n\n")
+                
+                for trait, data in self.results['prs_scores'].items():
+                    f.write(f"\n{trait.replace('_', ' ').upper()}\n")
+                    f.write("-"*50 + "\n")
+                    f.write(f"Polygenic Risk Score: {data['score']:.3f}\n")
+                    f.write(f"Population Percentile: {data['percentile']:.1f}%\n")
+                    f.write(f"Risk Category: {data['risk_category']}\n")
+                    f.write(f"Based on {data['variants_analyzed']}/{data['total_variants']} variants\n\n")
+                    
+                    # Top contributing variants
+                    f.write("Major Contributing Variants:\n")
+                    sorted_variants = sorted(data['details'], key=lambda x: abs(x['contribution']), reverse=True)[:5]
+                    
+                    for v in sorted_variants:
+                        f.write(f"  • {v['gene']} ({v['rsid']}): {v['genotype']}")
+                        f.write(f" - {v['allele_count']} risk allele(s), contribution: {v['contribution']:.3f}\n")
+                    
+                    # Scientific context
+                    if trait == 'cardiovascular_disease':
+                        f.write("\nScientific Context:\n")
+                        f.write("This score is based on the landmark 2018 study by Khera et al. (Nature Genetics)\n")
+                        f.write("which analyzed 5 million variants. Individuals in the top 5% have risk\n")
+                        f.write("equivalent to monogenic familial hypercholesterolemia.\n")
+                    elif trait == 'type_2_diabetes':
+                        f.write("\nScientific Context:\n")
+                        f.write("Based on Mahajan et al. 2018 (Nature Genetics) meta-analysis of 898,130 individuals.\n")
+                        f.write("The TCF7L2 variant alone confers ~30% increased risk per risk allele.\n")
+                    elif trait == 'alzheimers_disease':
+                        f.write("\nScientific Context:\n")
+                        f.write("APOE status is the strongest genetic risk factor. ε4 carriers have 3-15x\n")
+                        f.write("increased risk depending on number of copies (Jansen et al., Nature Genetics 2019).\n")
+                    
+                    f.write("\n")
+            
+            # 2. Pharmacogenomics
+            if 'pharmacogenomics' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("PHARMACOGENOMIC ANALYSIS (CPIC GUIDELINES)\n")
+                f.write("="*100 + "\n\n")
+                
+                f.write("Based on Clinical Pharmacogenetics Implementation Consortium (CPIC) guidelines.\n")
+                f.write("These are actionable variants with strong evidence for clinical utility.\n\n")
+                
+                for pharmaco in self.results['pharmacogenomics']:
+                    f.write(f"\n{pharmaco['gene']} - {pharmaco['drug']}\n")
+                    f.write("-"*50 + "\n")
+                    f.write(f"Variant: {pharmaco['rsid']}\n")
+                    f.write(f"Your Genotype: {pharmaco['genotype']}\n")
+                    f.write(f"Metabolizer Status: {pharmaco['interpretation']}\n")
+                    f.write(f"Clinical Impact: {pharmaco['impact']}\n")
+                    f.write(f"Evidence Level: {pharmaco['guidelines']}\n")
+                    
+                    # Add specific recommendations
+                    if 'Warfarin' in pharmaco['drug']:
+                        f.write("\nClinical Note: Genotype-guided warfarin dosing can reduce time to stable INR\n")
+                        f.write("and decrease adverse events. Consider pharmacogenetic dosing algorithms.\n")
+                    elif 'Clopidogrel' in pharmaco['drug'] and 'Poor metabolizer' in pharmaco['interpretation']:
+                        f.write("\nClinical Note: Poor metabolizers have significantly reduced platelet inhibition.\n")
+                        f.write("Alternative antiplatelet therapy (prasugrel, ticagrelor) recommended.\n")
+                    elif 'SLCO1B1' in pharmaco['gene']:
+                        f.write("\nClinical Note: Increased risk of simvastatin-induced myopathy. Consider\n")
+                        f.write("alternative statins (rosuvastatin, pravastatin) or lower doses.\n")
+            
+            # 3. Athletic Performance
+            if 'athletic_performance' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("ATHLETIC PERFORMANCE GENETICS\n")
+                f.write("="*100 + "\n\n")
+                
+                for athletic in self.results['athletic_performance']:
+                    f.write(f"\n{athletic['gene']} - {athletic['trait']}\n")
+                    f.write("-"*30 + "\n")
+                    f.write(f"Genotype: {athletic['genotype']}\n")
+                    f.write(f"Effect: {athletic['interpretation']}\n")
+                    f.write(f"Reference: {athletic['reference']}\n")
+                
+                f.write("\nNote: Athletic performance is highly polygenic and strongly influenced by\n")
+                f.write("training, nutrition, and other environmental factors. Genetic variants\n")
+                f.write("explain only a small portion of athletic ability.\n")
+            
+            # 4. Nutritional Genomics
+            if 'nutritional_genomics' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("NUTRITIONAL GENOMICS\n")
+                f.write("="*100 + "\n\n")
+                
+                for nutrition in self.results['nutritional_genomics']:
+                    f.write(f"\n{nutrition['gene']}\n")
+                    f.write("-"*30 + "\n")
+                    f.write(f"Affects: {nutrition['nutrient']}\n")
+                    f.write(f"Your Genotype: {nutrition['genotype']}\n")
+                    f.write(f"Recommendation: {nutrition['recommendation']}\n")
+                    f.write(f"Reference: {nutrition['reference']}\n")
+                    
+                    # Add specific nutritional advice
+                    if 'MTHFR' in nutrition['gene'] and 'reduced activity' in nutrition['recommendation']:
+                        f.write("\nNutritional Note: Consider supplementing with methylfolate (5-MTHF) rather\n")
+                        f.write("than folic acid. Increase intake of folate-rich foods (leafy greens, legumes).\n")
+                    elif 'VDR' in nutrition['gene'] or 'GC' in nutrition['gene']:
+                        f.write("\nNutritional Note: Monitor vitamin D levels regularly. May require higher\n")
+                        f.write("supplementation doses to maintain optimal serum levels (>30 ng/mL).\n")
+            
+            # 5. Cognitive and Personality
+            if 'cognitive_traits' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("COGNITIVE AND PERSONALITY GENETICS\n")
+                f.write("="*100 + "\n\n")
+                
+                f.write("These variants influence neurotransmitter function and neural plasticity.\n")
+                f.write("Effects are subtle and heavily modulated by environment and experience.\n\n")
+                
+                for cognitive in self.results['cognitive_traits']:
+                    f.write(f"\n{cognitive['gene']}\n")
+                    f.write("-"*30 + "\n")
+                    f.write(f"Function: {cognitive['trait']}\n")
+                    f.write(f"Your Genotype: {cognitive['genotype']}\n")
+                    f.write(f"Effect: {cognitive['interpretation']}\n")
+                    f.write(f"Reference: {cognitive['reference']}\n")
+            
+            # 6. Circadian Rhythms
+            if 'circadian_rhythms' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("CIRCADIAN RHYTHM GENETICS\n")
+                f.write("="*100 + "\n\n")
+                
+                for circadian in self.results['circadian_rhythms']:
+                    f.write(f"\n{circadian['gene']} - {circadian['trait']}\n")
+                    f.write("-"*30 + "\n")
+                    f.write(f"Your Genotype: {circadian['genotype']}\n")
+                    f.write(f"Effect: {circadian['interpretation']}\n")
+                    f.write(f"Reference: {circadian['reference']}\n")
+                
+                f.write("\nPractical Implications: Understanding your genetic chronotype can help\n")
+                f.write("optimize sleep schedules, work performance, and medication timing.\n")
+            
+            # 7. Longevity
+            if 'longevity' in self.results:
+                f.write("\n" + "="*100 + "\n")
+                f.write("LONGEVITY AND HEALTHY AGING\n")
+                f.write("="*100 + "\n\n")
+                
+                for longevity in self.results['longevity']:
+                    f.write(f"\n{longevity['gene']}\n")
+                    f.write("-"*30 + "\n")
+                    f.write(f"Your Genotype: {longevity['genotype']}\n")
+                    f.write(f"Association: {longevity['interpretation']}\n")
+                    f.write(f"Reference: {longevity['reference']}\n")
+                
+                f.write("\nNote: Longevity is influenced by hundreds of genetic variants and strongly\n")
+                f.write("determined by lifestyle factors. These variants show statistical associations\n")
+                f.write("in centenarian studies but have modest individual effects.\n")
+            
+            # Scientific References
+            f.write("\n" + "="*100 + "\n")
+            f.write("KEY SCIENTIFIC REFERENCES\n")
+            f.write("="*100 + "\n\n")
+            
+            references = [
+                "1. Khera AV, et al. Genome-wide polygenic scores for common diseases identify individuals with risk equivalent to monogenic mutations. Nat Genet. 2018;50(9):1219-1224.",
+                "2. Mahajan A, et al. Fine-mapping type 2 diabetes loci to single-variant resolution using high-density imputation and islet-specific epigenome maps. Nat Genet. 2018;50(11):1505-1513.",
+                "3. Jansen IE, et al. Genome-wide meta-analysis identifies new loci and functional pathways influencing Alzheimer's disease risk. Nat Genet. 2019;51(3):404-413.",
+                "4. Clinical Pharmacogenetics Implementation Consortium (CPIC) Guidelines. Available at: cpicpgx.org",
+                "5. Yang N, et al. ACTN3 genotype is associated with human elite athletic performance. Am J Hum Genet. 2003;73(3):627-31.",
+                "6. Patke A, et al. Mutation of the Human Circadian Clock Gene CRY1 in Familial Delayed Sleep Phase Disorder. Cell. 2017;169(2):203-215.",
+                "7. Willcox BJ, et al. FOXO3A genotype is strongly associated with human longevity. PNAS. 2008;105(37):13987-92.",
+                "8. Grove J, et al. Identification of common genetic risk variants for autism spectrum disorder. Nat Genet. 2019;51(3):431-444.",
+                "9. Savage JE, et al. Genome-wide association meta-analysis in 269,867 individuals identifies new genetic and functional links to intelligence. Nat Genet. 2018;50(7):912-919.",
+                "10. Yengo L, et al. Meta-analysis of genome-wide association studies for height and body mass index in ~700,000 individuals of European ancestry. Hum Mol Genet. 2018;27(20):3641-3649."
+            ]
+            
+            for ref in references:
+                f.write(f"{ref}\n")
+            
+            # Footer
+            f.write("\n" + "="*100 + "\n")
+            f.write("END OF REPORT\n")
+            f.write("="*100 + "\n\n")
+            
+            f.write("This report analyzed your genetic data using current scientific knowledge.\n")
+            f.write("Genetic research is rapidly advancing, and interpretations may change as\n")
+            f.write("new discoveries are made. For medical decisions, consult with healthcare\n")
+            f.write("professionals who can interpret these findings in your clinical context.\n\n")
+            
+            f.write("Report generated by Advanced Scientific Genetic Analysis Tool v2.0\n")
+            f.write("For research and educational purposes only.\n")
+        
+        print(f"Comprehensive scientific report saved as: {report_filename}")
+        return report_filename
+    
+    def run_complete_scientific_analysis(self):
+        """Execute the complete scientific analysis pipeline."""
+        print("="*80)
+        print("ADVANCED SCIENTIFIC GENETIC ANALYSIS")
+        print("="*80)
+        print("\nInitializing comprehensive genomic analysis using latest research...\n")
+        
+        # Load and quality control
+        self.load_data()
+        
+        # Basic statistics
+        self.analyze_basic_statistics()
+        
+        # Advanced analyses
+        self.calculate_polygenic_risk_scores()
+        self.analyze_pharmacogenomics()
+        self.analyze_athletic_performance()
+        self.analyze_nutritional_genomics()
+        self.analyze_circadian_rhythms()
+        self.analyze_cognitive_traits()
+        self.analyze_longevity_variants()
+        self.analyze_rare_variants()
+        self.calculate_genetic_ancestry()
+        
+        # Generate outputs
+        self.generate_advanced_visualizations()
+        report_filename = self.generate_scientific_report()
+        
+        print("\n" + "="*80)
+        print("SCIENTIFIC ANALYSIS COMPLETE")
+        print("="*80)
+        
+        # Summary statistics
+        print("\nAnalysis Summary:")
+        print(f"• Analyzed {self.results['basic_stats']['total_variants']:,} genetic variants")
+        print(f"• Calculated polygenic risk scores for {len(self.results.get('prs_scores', {}))} complex traits")
+        print(f"• Identified {len(self.results.get('pharmacogenomics', []))} pharmacogenomic variants")
+        print(f"• Analyzed {len(self.results.get('athletic_performance', []))} athletic performance markers")
+        print(f"• Evaluated {len(self.results.get('nutritional_genomics', []))} nutritional genetic factors")
+        
+        print("\nOutputs Generated:")
+        print(f"• Comprehensive scientific report: {report_filename}")
+        print("• Advanced visualizations in: genetic_analysis_plots/")
+        
+        print("\nThis analysis incorporates findings from major genomics studies published in")
+        print("Nature Genetics, Cell, PNAS, and other leading journals. Remember that genetic")
+        print("variants represent statistical associations and probabilities, not certainties.")
+        print("\nFor clinical interpretation, consult with medical genetics professionals.")
+
+def main():
+    """Main function to run the advanced genetic analysis."""
+    print("Advanced Scientific Genetic Analysis Tool")
+    print("Version 2.0 - Incorporating Latest Genomics Research")
+    print("="*60)
+    
+    # Get filename
+    filename = input("Enter the path to your 23andMe data file (or press Enter for 'paste.txt'): ").strip()
+    if not filename:
+        filename = 'paste.txt'
+    
+    # Check file exists
+    if not os.path.exists(filename):
+        print(f"Error: File '{filename}' not found!")
+        return
+    
+    # Create analyzer and run
+    try:
+        analyzer = AdvancedGeneticAnalyzer(filename)
+        analyzer.run_complete_scientific_analysis()
+    except Exception as e:
+        print(f"\nAn error occurred: {e}")
+        import traceback
+        traceback.print_exc()
+
+if __name__ == "__main__":
+    main()
+>>>>>>> 0e9ab3aa2b3a2b9eaa791fe626bd42a82f2cc1a9
