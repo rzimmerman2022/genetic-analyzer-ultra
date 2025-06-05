@@ -18,23 +18,16 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import defaultdict, Counter
+from collections import defaultdict
 import warnings
 import json
 from datetime import datetime
 import os
 from scipy import stats
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
-import networkx as nx
-from itertools import combinations
 import math
-import json # Added
-import hashlib # Added
-from datetime import datetime # Ensure datetime is imported if not already (it is used later)
 
 # Import new utility modules
-import effect_utils 
+import effect_utils
 import validation
 import disclaimers
 import versioning
@@ -1085,7 +1078,6 @@ class AdvancedGeneticAnalyzer:
             self.data['chromosome'] = self.data['chromosome'].astype(str)
             
             # Count no-calls before removing them
-            no_calls = len(self.data[self.data['genotype'].isin(['--', 'DD', 'II'])])
             total_original = len(self.data)
             
             # Remove no-calls, deletions, and insertions
@@ -1197,7 +1189,6 @@ class AdvancedGeneticAnalyzer:
         # Simplified: Use a small subset of variants and simulate PCA
         # In a real scenario, you'd use a curated list of ancestry-informative markers (AIMs)
         # or a large number of common SNPs.
-        num_variants_for_pca = min(1000, len(self.data)) # Use up to 1000 variants
         
         # Ensure 'genotype' column exists and handle potential non-numeric genotypes
         # This is highly simplified: real PCA needs numeric encoding (0, 1, 2 for allele counts)
@@ -1240,7 +1231,9 @@ class AdvancedGeneticAnalyzer:
                     if line.startswith('#'):
                         continue
                     fields = line.strip().split('\t')
-                    if len(fields) < 10: continue # Need at least 10 fields for FORMAT and SAMPLE
+                    if len(fields) < 10:
+                        # Need at least 10 fields for FORMAT and SAMPLE
+                        continue
                     
                     rsid = fields[2]
                     ref_allele_vcf = fields[3]
@@ -1312,12 +1305,31 @@ class AdvancedGeneticAnalyzer:
                         }
                         # Add CI propagation for VCF path
                         if 'ci_95' in info and info['ci_95'] and len(info['ci_95']) == 2:
-                             lower_ci_allele, upper_ci_allele = info['ci_95']
-                             if risk_allele_count_in_gt == 0: risk_assessment_vcf['relative_risk_ci_95'] = (1.0,1.0)
-                             elif risk_allele_count_in_gt == 1: risk_assessment_vcf['relative_risk_ci_95'] = (lower_ci_allele, upper_ci_allele)
-                             elif risk_allele_count_in_gt == 2: # Assuming homozygous
-                                 if effect_size >=1: risk_assessment_vcf['relative_risk_ci_95'] = (lower_ci_allele**1.5 if lower_ci_allele > 0 else 0, upper_ci_allele**1.5)
-                                 else: risk_assessment_vcf['relative_risk_ci_95'] = tuple(sorted((upper_ci_allele**(1/1.5) if upper_ci_allele > 0 else 0, lower_ci_allele**(1/1.5))))
+                            lower_ci_allele, upper_ci_allele = info['ci_95']
+                            if risk_allele_count_in_gt == 0:
+                                risk_assessment_vcf['relative_risk_ci_95'] = (1.0, 1.0)
+                            elif risk_allele_count_in_gt == 1:
+                                risk_assessment_vcf['relative_risk_ci_95'] = (
+                                    lower_ci_allele,
+                                    upper_ci_allele,
+                                )
+                            elif risk_allele_count_in_gt == 2:  # Assuming homozygous
+                                if effect_size >= 1:
+                                    risk_assessment_vcf['relative_risk_ci_95'] = (
+                                        lower_ci_allele**1.5 if lower_ci_allele > 0 else 0,
+                                        upper_ci_allele**1.5,
+                                    )
+                                else:
+                                    risk_assessment_vcf['relative_risk_ci_95'] = tuple(
+                                        sorted(
+                                            (
+                                                upper_ci_allele ** (1 / 1.5)
+                                                if upper_ci_allele > 0
+                                                else 0,
+                                                lower_ci_allele ** (1 / 1.5),
+                                            )
+                                        )
+                                    )
 
 
                         finding = {
@@ -1334,7 +1346,6 @@ class AdvancedGeneticAnalyzer:
                         risk_findings_vcf['neurological'].append(finding)
                         
             self.results['disease_risk'] = dict(risk_findings_vcf)
-            import validation # Ensure validation is imported
             self.results['validation_summary_report'] = validation.validate(self.results)
             # Print validation summary for VCF path as well
             print("Validation Summary (VCF Path):")
@@ -1560,7 +1571,6 @@ class AdvancedGeneticAnalyzer:
         # Handle different trait types
         if 'taster_allele' in trait_info:
             taster_allele = trait_info['taster_allele']
-            non_taster_allele = trait_info.get('non_taster_allele', None)
             
             taster_count = genotype.count(taster_allele)
             if taster_count == 2:
@@ -1707,7 +1717,7 @@ class AdvancedGeneticAnalyzer:
             'interpretation': self._interpret_ancient_admixture(estimated_neanderthal_pct)
         }
         
-        print(f"\nAncient human ancestry detected:")
+        print("\nAncient human ancestry detected:")
         print(f"Neanderthal variants found: {neanderthal_count}")
         print(f"Denisovan variants found: {denisovan_count}")
         print(f"Estimated Neanderthal ancestry: {estimated_neanderthal_pct:.1f}%")
@@ -2611,7 +2621,7 @@ class AdvancedGeneticAnalyzer:
             
             data = np.array([ancestral, derived])
             
-            im = ax1.imshow(data, cmap='RdYlBu_r', aspect='auto')
+            ax1.imshow(data, cmap='RdYlBu_r', aspect='auto')
             ax1.set_xticks(range(len(marker_names)))
             ax1.set_xticklabels(marker_names, rotation=45, ha='right')
             ax1.set_yticks([0, 1])
@@ -2621,7 +2631,7 @@ class AdvancedGeneticAnalyzer:
             # Add text annotations
             for i in range(len(marker_names)):
                 for j in range(2):
-                    text = ax1.text(i, j, data[j, i], ha="center", va="center", color="black")
+                    ax1.text(i, j, data[j, i], ha="center", va="center", color="black")
             
             # Pie chart of overall composition
             total_ancestral = sum(ancestral)
@@ -2900,7 +2910,7 @@ class AdvancedGeneticAnalyzer:
                 f.write("Screening for known pathogenic mutations:\n\n")
                 
                 for variant in self.results['rare_variants']:
-                    f.write(f"\n⚠️  RARE VARIANT DETECTED:\n")
+                    f.write("\n⚠️  RARE VARIANT DETECTED:\n")
                     f.write("-"*40 + "\n")
                     f.write(f"Gene: {variant['gene']}\n")
                     f.write(f"Variant: {variant['rsid']}\n")

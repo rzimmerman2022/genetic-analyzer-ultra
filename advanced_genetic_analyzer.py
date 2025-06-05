@@ -23,12 +23,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import defaultdict, Counter
-import json
+from collections import defaultdict
 from datetime import datetime
 import os
 import scipy.stats as stats
-from typing import Dict, List, Tuple
+
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -1476,16 +1475,16 @@ class AdvancedGeneticAnalyzer:
         print("="*80)
         
         # Summary statistics
-        print(f"\nAnalysis Summary:")
+        print("\nAnalysis Summary:")
         print(f"• Analyzed {self.results['basic_stats']['total_variants']:,} genetic variants")
         print(f"• Calculated polygenic risk scores for {len(self.results.get('prs_scores', {}))} complex traits")
         print(f"• Identified {len(self.results.get('pharmacogenomics', []))} pharmacogenomic variants")
         print(f"• Analyzed {len(self.results.get('athletic_performance', []))} athletic performance markers")
         print(f"• Evaluated {len(self.results.get('nutritional_genomics', []))} nutritional genetic factors")
         
-        print(f"\nOutputs Generated:")
+        print("\nOutputs Generated:")
         print(f"• Comprehensive scientific report: {report_filename}")
-        print(f"• Advanced visualizations in: genetic_analysis_plots/")
+        print("• Advanced visualizations in: genetic_analysis_plots/")
         
         print("\nThis analysis incorporates findings from major genomics studies published in")
         print("Nature Genetics, Cell, PNAS, and other leading journals. Remember that genetic")
