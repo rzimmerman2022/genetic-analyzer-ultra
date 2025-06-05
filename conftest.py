@@ -1,7 +1,7 @@
-import sys
-import os
+"""Project-wide pytest configuration.
 
-# Ensure the project root (c:/DNA) is in sys.path so modules can be imported by tests
-project_root = os.path.abspath(os.path.dirname(__file__))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
+This file is intentionally minimal. The repository now uses a standard layout
+with ``pytest.ini`` specifying ``python_paths = .``, so no manual ``sys.path``
+manipulation is required.
+"""
+
