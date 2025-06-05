@@ -3,3 +3,4 @@ __pycache__/
 ultra_comprehensive_genetic_analysis_*.txt
 *.json
 genetic_analysis_plots/
+*.pyc
