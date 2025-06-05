@@ -16,10 +16,13 @@ Repository URL: https://github.com/rzimmerman2022/genetic-analyzer-ultra
 
 1. Clone the repository  
    `git clone https://github.com/rzimmerman2022/genetic-analyzer-ultra.git`  
-2. Install dependencies  
+2. Install dependencies
    ```bash
    pip install -r requirements.txt
-   ```  
+   ```
+   This installs packages like `pandas`, `numpy`, `scipy`, `matplotlib`,
+   `seaborn`, `scikit-learn`, `networkx` and `requests` as listed in the
+   requirements file.
 3. Run the analysis  
    ```bash
    python genetic_analyzer_ultra.py --ancestry AFR path/to/your/raw_data.txt
