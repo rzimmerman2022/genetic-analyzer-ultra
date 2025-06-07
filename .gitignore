@@ -1,4 +1,5 @@
 __pycache__/
+*.pyc
 *.backup.py
 ultra_comprehensive_genetic_analysis_*.txt
 *.json
