@@ -23,10 +23,17 @@ Repository URL: https://github.com/rzimmerman2022/genetic-analyzer-ultra
    The `requirements.txt` file pins the versions of core packages such as
    `pandas`, `numpy`, `matplotlib`, `scipy`, `seaborn`, `scikit-learn`,
    `networkx`, and `requests` to ensure consistent results.
-3. Run the analysis  
+3. Run the tests
+   Make sure the packages listed in `requirements.txt` are installed **before**
+   executing the test suite. This is also what the CI pipeline should do when
+   verifying pull requests.
+   ```bash
+   pytest
+   ```
+4. Run the analysis
    ```bash
    python genetic_analyzer_ultra.py --ancestry AFR path/to/your/raw_data.txt
-   ```  
+   ```
 
 ## License
 
